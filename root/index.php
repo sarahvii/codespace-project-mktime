@@ -11,7 +11,7 @@
     <title>MK Time</title>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="#">MK Time</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
         <div class="card-body">
           <h5 class="card-title">Magellan Watch</h5>
           <p class="card-text">Pretend you know how to navigate with these bonus dials. What do they do? No one knows.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-dark">Go somewhere</a>
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@
         <div class="card-body">
           <h5 class="card-title">Dior</h5>
           <p class="card-text">It's too pretty not to be on your wrist.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-dark">Go somewhere</a>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
         <div class="card-body">
           <h5 class="card-title">Gold (Gold!)</h5>
           <p class="card-text">Look at this one, you can't afford it. Buy it anyway.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-dark">Go somewhere</a>
         </div>
       </div>
     </div>
