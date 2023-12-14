@@ -54,7 +54,7 @@
           echo '      <h5 class="card-title">'.$row["product_name"].'</h5>';
           echo '      <p class="card-text">'.$row["product_desc"].'</p>';
           echo '      <p class="card-text">Price: $'.$row["product_price"].'</p>';
-          echo '      <a href="product_details.php?id='.$row["product_id"].'" class="btn btn-dark">Go somewhere</a>';
+          echo '      <a href="product_details.php?id='.$row["product_id"].'" class="btn btn-dark">Product details</a>';
           echo '    </div>';
           echo '  </div>';
           echo '</div>';
