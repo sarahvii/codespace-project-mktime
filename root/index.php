@@ -28,45 +28,44 @@
 <div class="container">
   <!-- Content here -->
   <?php
-      
       echo'<h1 class="text-center">Hello, watch lover!</h1>';
-      echo'<h2>Look at these shiny watches</h2>';
+      echo'<h2 class="text-center">Look at these shiny watches</h2>';
+
+      //connect to db
+      $link = mysqli_connect('localhost','root','','mktime'); 
+      if (!$link) { 
+        die('Could not connect to MySQL: ' . mysqli_error()); 
+      } 
+      echo 'Connected to the database successfully!'; 
+
+      //fetch product data from db
+      $sql = "SELECT * FROM products";
+      $result = mysqli_query($link, $sql);
+
+      if (mysqli_num_rows($result) > 0) {
+        echo '<div class="row">';
+
+        // output data of each row into product card
+        while($row = mysqli_fetch_assoc($result)) {
+          echo '<div class="col-sm-4">';
+          echo '  <div class="card" style="width: 18rem;">';
+          echo '    <img src="'.$row["product_img"].'" class="card-img-top" alt="...">';
+          echo '    <div class="card-body">';
+          echo '      <h5 class="card-title">'.$row["product_name"].'</h5>';
+          echo '      <p class="card-text">'.$row["product_desc"].'</p>';
+          echo '      <p class="card-text">Price: $'.$row["product_price"].'</p>';
+          echo '      <a href="product_details.php?id='.$row["product_id"].'" class="btn btn-dark">Product details</a>';
+          echo '    </div>';
+          echo '  </div>';
+          echo '</div>';
+        }
+        echo '</div>';
+      } else {
+        echo "0 results";
+      }
+      mysqli_close($link);
+
   ?>
-  <div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-        <img src="img/watch1.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Magellan Watch</h5>
-          <p class="card-text">Pretend you know how to navigate with these bonus dials. What do they do? No one knows.</p>
-          <a href="#" class="btn btn-dark">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-        <img src="img/watch2.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Dior</h5>
-          <p class="card-text">It's too pretty not to be on your wrist.</p>
-          <a href="#" class="btn btn-dark">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm">
-      <div class="card" style="width: 18rem;">
-        <img src="img/watch3.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Gold (Gold!)</h5>
-          <p class="card-text">Look at this one, you can't afford it. Buy it anyway.</p>
-          <a href="#" class="btn btn-dark">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    </div>
-    </div>
-  </div>
 </div>
 </div>
 

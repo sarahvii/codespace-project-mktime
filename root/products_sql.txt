@@ -9,3 +9,8 @@ CREATE TABLE IF NOT EXISTS products (
     product_price DECIMAL(10,2) NOT NULL,
     PRIMARY KEY (product_id)
 );
+
+INSERT INTO products (product_name, product_desc, product_img, product_price) VALUES
+('Magellan Watch', 'Pretend you know how to navigate with these bonus dials. What do they do? No one knows.', 'img/watch1.jpg', 250.00),
+('Dior', 'It\'s too pretty not to be on your wrist.', 'img/watch2.jpg', 450.00),
+('Gold (Gold!)', 'Look at this one, you can\'t afford it. Buy it anyway.', 'img/watch3.jpg', 1500.00);
