@@ -7,8 +7,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-
-    <title>MK Time</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+  <title>MK Time</title>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -22,6 +23,8 @@
       <a class="nav-link" href="#">Features</a>
       <a class="nav-link" href="#">Pricing</a>
       <a class="nav-link disabled">Disabled</a>
+      <a class="nav-link" href="\mktime\root\login.php">Login</a>
+     
     </div>
   </div>
 </nav>
