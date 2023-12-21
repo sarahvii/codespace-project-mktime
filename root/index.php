@@ -71,54 +71,56 @@
   ?>
       </div>
     </div>
-  <!--Footer --> 
-  <footer class="bg-dark text-center text-white">
+  <!--Footer -->
+<footer class="bg-dark text-center text-white">
   <!-- Grid container -->
-  <div class="container-fluid p-4 pb-0 mx-auto justify-content-center ">
-    <!-- Section: Form-->
-    <section class="">
-      <!-- <form action="">-->
-        <!--Grid row-->
-        <div class="row d-flex justify-content-center align-content-center">
-          <!--Grid column-->
-          <div class="col-auto">
-            <p class="pt-2">
-              <strong>Sign up for our newsletter</strong>
-            </p>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-md-5 col-12">
-            <!-- Email input -->
-            <div class="form-outline form-white mb-4">
-              <input type="email" id="form5Example2" class="form-control" placeholder="Email address"/>
-              <!-- <label class="form-label" for="form5Example2">Email address</label>-->
-            </div>
-          </div>
-          <!--Grid column-->
-
-          <!--Grid column-->
-          <div class="col-12 text-center">
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-outline-light mb-4 d-block mx-auto">
-              Subscribe
-            </button>
-          </div>
-          <!--Grid column-->
-        </div>
-        <!--Grid row-->
-      </form>
+  <div class="container-fluid p-3 pb-0 mx-auto">
+    <!-- Section: Logo and Social Media Icons -->
+    <section class="d-flex justify-content-between align-items-center">
+      <!-- Logo -->
+      <div class="aero-footer-navigation-container">
+        <a href="http://localhost/mktime/root/index.php#" title="MKTime">
+          <img src="http://localhost/mktime/images/mktime.png" alt="MKTime" width="250" height="71" loading="lazy" class="" />
+        </a>
+      </div>
+      <!-- Social Media Icons -->
+      <div class="aero-socials">
+        <ul class="aero-social__list flex items-center space-x-4">
+          <li class="aero-social__list-item flex items-center rounded hover:opacity-75">
+            <a href="#" class="aero-social__list-link inline-block p-2" target="_blank" rel="noopener">
+              <img class="aero-social" src="http://localhost/mktime/images/facebook.jpg" width="25" height="25" loading="lazy" class="">
+              <img class="aero-social" src="http://localhost/mktime/images/insta.jpg" width="25" height="25" loading="lazy" class="">
+            </a>
+          </li>
+          <!-- Add more social media icons as needed -->
+        </ul>
+      </div>
     </section>
-    <!-- Section: Form -->
-  </div>
-  <!-- Grid container -->
+    <hr>
+    <!-- Section: Form-->
+    <section class="text-center">
+      <div class="row">
+        <div class="col-md-4 col-12 mx-auto">
+          <!-- Sign up text -->
+          <p class="pt-2">
+            <strong>Sign up for our newsletter</strong>
+          </p>
+          <!-- Email input -->
+          <div class="form-outline form-white mb-4">
+            <input type="email" id="form5Example2" class="form-control" placeholder="Email address"/>
+          </div>
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-outline-light mb-4">
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </section>
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © Copyright MKTime 2023. All rights reserved
   </div>
-  <!-- Copyright -->
 </footer>
   
 </div>
