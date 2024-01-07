@@ -25,12 +25,15 @@
             </div>
         </div>
     </nav>
-    <br><br><br>
+    <br><br>
     <h2><b>Create account</b></h2>
     <form action="create_account.php" method="post">
 
-        <label for="Name">Name:</label>
-        <input type="name" id="name" name="name" placeholder="Enter name" required><br>
+        <label for="Name">First Name:</label>
+        <input type="name" id="name" name="name" placeholder="Enter first name" required><br>
+
+        <label for="Name">Last Name:</label>
+        <input type="name" id="name" name="name" placeholder="Enter last name" required><br>
 
         <label for="email">Email address:</label>
         <input type="email" id="email" name="email" placeholder="Enter email address" required><br>
