@@ -52,15 +52,8 @@ DROP COLUMN quantity
 
 
 
-_____________________NEW UPDATES after 11.30am
+_____________________ITEMS > PRODUCT UPDATES after 11.30am_____________________________
 
-
-ALTER TABLE products
-CHANGE COLUMN item_id product_id INT,
-CHANGE COLUMN item_name product_name VARCHAR(20), 
-CHANGE COLUMN item_desc product_desc VARCHAR(200),
-CHANGE COLUMN item_img product_img VARCHAR(20),
-CHANGE COLUMN item_price product_price DECIMAL(4,2);
 
 ALTER TABLE order_contents
 CHANGE COLUMN item_id product_id INT;
@@ -71,3 +64,31 @@ CHANGE COLUMN item_id product_id INT;
 ALTER TABLE users
 MODIFY COLUMN password VARCHAR(64) NOT NULL,
 MODIFY COLUMN payment_id INT(10) NULL;
+
+
+
+__________________PRODUCT DESC AND IMAGE UPDATES after 1pm___________________________________
+
+DROP TABLE products
+
+CREATE TABLE products (
+    product_id int UNSIGNED NOT NULL AUTO_INCREMENT,
+    product_name VARCHAR(20) NOT NULL,
+    product_desc VARCHAR(200) NOT NULL,
+    product_img VARCHAR(20) NOT NULL,
+    product_price DECIMAL(4,2) NOT NULL,
+    PRIMARY KEY (product_id)
+    );
+
+    
+    INSERT INTO products (product_name, product_desc, product_img, product_price) VALUES
+('Schaffhausen', 'A watch for the stylish traveller. Look at all the dials on it! What do they do? No one knows.', 'img/watch1.jpg', 10.99),
+('Dior', 'Nothing says style and elegance like this Dior Watch. Can you tell the exact time? Who cares, numbers are for people who buy their jeans from Tesco.', 'img/watch2.jpg', 15.99),
+('Gold', 'Gold! Always believe in your soul. Dress like Tom Hiddleston's love interest who's about to be killed off.', 'img/watch3.jpg', 8.99),
+('Gucci', 'Nothing is "a bit much". Contains fragments of the true cross.', 'img/watch4.jpeg', 12.99),
+('Heuer', 'With three extra dials and a monochromatic colour scheme, this is the ideal gift for the goth with wanderlust in your life.', 'img/watch5.jpg', 19.99),
+('Rolex', 'The hallmark of quality, with a strap designed specifically to trap arm hairs.', 'img/watch6.jpg', 7.99),
+('Retro', 'If you have really small pointy fingertips and little to no ability to do mental arithmetic, this Casio Calculator watch is the one for you.', 'img/watch7.jpg', 14.99),
+('Classic Leather', 'A watch for Dads', 'img/watch8.jpeg', 9.99),
+('Longines', 'Swiss made class, something which says you don't want to just tell the time, you want to look great doing it.', 'img/watch9.jpg', 11.99),
+('Rado', 'A retro classic, this gold digital watch is just what you need to distinguish yourself at your local Brewdog pub.', 'img/watch10.jpg', 16.99);
