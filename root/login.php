@@ -19,6 +19,11 @@ if ( isset( $errors ) && !empty( $errors ) )
 if (isset($_SESSION['firstname']) && isset($_SESSION['lastname'])) {
     echo "{$_SESSION['firstname']} {$_SESSION['lastname']}";
  }
+
+ # Dislay logout message
+if (isset($_GET['logged_out']) && $_GET['logged_out'] == 'true') {
+    echo '<p>You have been successfully logged out.</p>';
+}
 ?>
 
 <!DOCTYPE html>

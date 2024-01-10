@@ -16,7 +16,7 @@
       <a class="nav-link" href="#">Pricing</a>
       <a class="nav-link disabled">Disabled</a>
       <a class="nav-link" href="\mktime\root\login.php">Login</a>
-     
+      <a class="nav-link" href="logout.php">Logout</a>
     </div>
   </div>
 </nav>
