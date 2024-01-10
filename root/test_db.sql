@@ -123,9 +123,9 @@ CREATE TABLE `users` (
   `firstname` varchar(20) NOT NULL,
   `lastname` varchar(40) NOT NULL,
   `email` varchar(60) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `password` varchar(64) NOT NULL,
   `reg_date` datetime NOT NULL,
-  `payment_id` int(10) NOT NULL
+  `payment_id` int(10) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
