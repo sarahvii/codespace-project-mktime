@@ -5,7 +5,7 @@
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">MK Time</a>
+  <a class="navbar-brand" href="#"><img src="img/mktime.png" alt="MKTime" background-color="#001f3f" width="250" height="71" loading="lazy" class="" /></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -23,8 +23,11 @@
 <div class="container">
   <!-- Content here -->
   <?php
-      echo'<h1 class="text-center">Hello, watch lover!</h1>';
-      echo'<h2 class="text-center">Look at these shiny watches</h2>';
+      echo'<h3 class="text-center">
+  <strong>Welcome to MK Time</strong><br>
+  <small class="text-muted"><em>Watches for every wrist</em></small>
+  <br>
+</h3>';
 
       //connect to db
       $link = mysqli_connect('localhost','root','','mktime'); 
@@ -44,7 +47,7 @@
         while($row = mysqli_fetch_assoc($result)) {
           echo '<div class="col-sm-4">';
           echo '  <div class="card" style="width: 18rem;">';
-          echo '    <img src="'.$row["product_img"].'" class="card-img-top" alt="...">';
+		  echo '<img src="' . $row["product_img"] . '" class="card-img-top" alt="..." style="max-height: 150px;">';
           echo '    <div class="card-body">';
           echo '      <h5 class="card-title">'.$row["product_name"].'</h5>';
           echo '      <p class="card-text">'.$row["product_desc"].'</p>';
@@ -72,16 +75,16 @@
       <!-- Logo -->
       <div class="aero-footer-navigation-container">
         <a href="http://localhost/mktime/root/index.php#" title="MKTime">
-          <img src="http://localhost/mktime/images/mktime.png" alt="MKTime" width="250" height="71" loading="lazy" class="" />
+          <img src="img/mktime.png" alt="MKTime" width="250" height="71" loading="lazy" class="" />
         </a>
       </div>
       <!-- Social Media Icons -->
       <div class="aero-socials">
-        <ul class="aero-social__list flex items-center space-x-4">
+        <ul class="aero-social__list list-unstyled flex items-center space-x-4">
           <li class="aero-social__list-item flex items-center rounded hover:opacity-75">
             <a href="#" class="aero-social__list-link inline-block p-2" target="_blank" rel="noopener">
-              <img class="aero-social" src="http://localhost/mktime/images/facebook.jpg" width="25" height="25" loading="lazy" class="">
-              <img class="aero-social" src="http://localhost/mktime/images/insta.jpg" width="25" height="25" loading="lazy" class="">
+              <img class="aero-social" src="img/facebook.jpg" width="25" height="25" loading="lazy" class="">
+              <img class="aero-social" src="img/insta.jpg" width="25" height="25" loading="lazy" class="">
             </a>
           </li>
           <!-- Add more social media icons as needed -->
