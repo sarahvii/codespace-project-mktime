@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <?php include('include/head.php'); ?>
+    <?php session_start();
+	include('include/head.php'); ?>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -15,8 +16,16 @@
       <a class="nav-link" href="#">Features</a>
       <a class="nav-link" href="#">Pricing</a>
       <a class="nav-link disabled">Disabled</a>
-      <a class="nav-link" href="login.php">Login</a>
-      <a class="nav-link" href="logout.php">Logout</a>
+      <?php
+        // Check if the user is logged in
+        if (isset($_SESSION['user_id'])) {
+            // Display logout link
+            echo '<a class="nav-link" href="logout.php">Logout</a>';
+        } else {
+            // Display login link
+            echo '<a class="nav-link" href="login.php">Login</a>';
+        }
+        ?>
     </div>
   </div>
 </nav>
@@ -24,7 +33,7 @@
   <!-- Content here -->
   <?php
   
-  session_start();
+  
         //connect to db
       $link = mysqli_connect('localhost','root','','mktime'); 
       if (!$link) { 
