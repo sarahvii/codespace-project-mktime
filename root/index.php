@@ -1,45 +1,33 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
-  <title>MK Time</title>
+    <?php session_start();
+	include('include/head.php'); ?>
+	<!-- navbar -->
+  <?php include('navbar.php'); ?>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">MK Time</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-link" href="#">Features</a>
-      <a class="nav-link" href="#">Pricing</a>
-      <a class="nav-link disabled">Disabled</a>
-      <a class="nav-link" href="\mktime\root\login.php">Login</a>
-     
-    </div>
-  </div>
-</nav>
 <div class="container">
+  
+  
   <!-- Content here -->
   <?php
-      echo'<h1 class="text-center">Hello, watch lover!</h1>';
-      echo'<h2 class="text-center">Look at these shiny watches</h2>';
-
-      //connect to db
+  
+  
+        //connect to db
       $link = mysqli_connect('localhost','root','','mktime'); 
       if (!$link) { 
         die('Could not connect to MySQL: ' . mysqli_error()); 
       } 
       echo 'Connected to the database successfully!'; 
+
+
+echo '<h3 class="text-center"> 
+  <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . ' and welcome to MK Time</strong><br>
+  <small class="text-muted"><em>Watches for every wrist</em></small>
+  <br>
+</h3>';
+
 
       //fetch product data from db
       $sql = "SELECT * FROM products";
@@ -52,11 +40,11 @@
         while($row = mysqli_fetch_assoc($result)) {
           echo '<div class="col-sm-4">';
           echo '  <div class="card" style="width: 18rem;">';
-          echo '    <img src="'.$row["product_img"].'" class="card-img-top" alt="...">';
+		  echo '<img src="' . $row["product_img"] . '" class="card-img-top" alt="..." style="max-height: 150px;">';
           echo '    <div class="card-body">';
           echo '      <h5 class="card-title">'.$row["product_name"].'</h5>';
           echo '      <p class="card-text">'.$row["product_desc"].'</p>';
-          echo '      <p class="card-text">Price: $'.$row["product_price"].'</p>';
+          echo '      <p class="card-text">Price: £'.$row["product_price"].'</p>';
           echo '      <a href="product_details.php?id='.$row["product_id"].'" class="btn btn-dark">Product details</a>';
           echo '    </div>';
           echo '  </div>';
@@ -80,16 +68,16 @@
       <!-- Logo -->
       <div class="aero-footer-navigation-container">
         <a href="http://localhost/mktime/root/index.php#" title="MKTime">
-          <img src="http://localhost/mktime/images/mktime.png" alt="MKTime" width="250" height="71" loading="lazy" class="" />
+          <img src="img/mktime.png" alt="MKTime" width="250" height="71" loading="lazy" class="" />
         </a>
       </div>
       <!-- Social Media Icons -->
       <div class="aero-socials">
-        <ul class="aero-social__list flex items-center space-x-4">
+        <ul class="aero-social__list list-unstyled flex items-center space-x-4">
           <li class="aero-social__list-item flex items-center rounded hover:opacity-75">
             <a href="#" class="aero-social__list-link inline-block p-2" target="_blank" rel="noopener">
-              <img class="aero-social" src="http://localhost/mktime/images/facebook.jpg" width="25" height="25" loading="lazy" class="">
-              <img class="aero-social" src="http://localhost/mktime/images/insta.jpg" width="25" height="25" loading="lazy" class="">
+              <img class="aero-social" src="img/facebook.jpg" width="25" height="25" loading="lazy" class="">
+              <img class="aero-social" src="img/insta.jpg" width="25" height="25" loading="lazy" class="">
             </a>
           </li>
           <!-- Add more social media icons as needed -->

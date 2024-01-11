@@ -26,7 +26,7 @@
       echo '<h1>'.$row["product_name"].'</h1>';
       echo '<img src="'.$row["product_img"].'" alt="Product Image" style="width:100%;max-width:300px;">';
       echo '<p>'.$row["product_desc"].'</p>';
-      echo '<p>Price: $'.$row["product_price"].'</p>';
+      echo '<p>Price: £'.$row["product_price"].'</p>';
     } else {
       echo "Product not found.";
     }
