@@ -17,7 +17,7 @@ if ( isset( $errors ) && !empty( $errors ) )
 
 # Display session data
 if (isset($_SESSION['firstname']) && isset($_SESSION['lastname'])) {
-    echo "{$_SESSION['firstname']} {$_SESSION['lastname']}";
+    echo "{$_SESSION['firstname']} {$_SESSION['lastname']} is logged in.";
  }
 
  # Dislay logout message
@@ -39,13 +39,13 @@ if (isset($_GET['logged_out']) && $_GET['logged_out'] == 'true') {
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">MK Time</a>
+  <a class="navbar-brand" href="#"><img src="img/mktime.png" alt="MKTime" background-color="#001f3f" width="250" height="71" loading="lazy" class="" /></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
                 <a class="nav-link" href="#">Features</a>
                 <a class="nav-link" href="#">Pricing</a>
                 <a class="nav-link disabled">Disabled</a>

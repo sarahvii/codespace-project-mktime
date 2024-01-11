@@ -11,11 +11,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
       <a class="nav-link" href="#">Features</a>
       <a class="nav-link" href="#">Pricing</a>
       <a class="nav-link disabled">Disabled</a>
-      <a class="nav-link" href="\mktime\root\login.php">Login</a>
+      <a class="nav-link" href="login.php">Login</a>
       <a class="nav-link" href="logout.php">Logout</a>
     </div>
   </div>
@@ -23,18 +23,22 @@
 <div class="container">
   <!-- Content here -->
   <?php
-      echo'<h3 class="text-center">
-  <strong>Welcome to MK Time</strong><br>
-  <small class="text-muted"><em>Watches for every wrist</em></small>
-  <br>
-</h3>';
-
-      //connect to db
+  
+  session_start();
+        //connect to db
       $link = mysqli_connect('localhost','root','','mktime'); 
       if (!$link) { 
         die('Could not connect to MySQL: ' . mysqli_error()); 
       } 
       echo 'Connected to the database successfully!'; 
+
+
+echo '<h3 class="text-center"> 
+  <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . ', welcome to MK Time</strong><br>
+  <small class="text-muted"><em>Watches for every wrist</em></small>
+  <br>
+</h3>';
+
 
       //fetch product data from db
       $sql = "SELECT * FROM products";
