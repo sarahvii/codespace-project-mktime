@@ -14,16 +14,16 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
   $errors = array();
 
   # Check for a first name
-  if ( empty( $_POST[ 'first_name' ] ) )
+  if ( empty( $_POST[ 'firstname' ] ) )
   { $errors[] = 'Enter your first name.' ; }
   else
-  { $fn = mysqli_real_escape_string( $link, trim( $_POST[ 'first_name' ] ) ) ; }
+  { $fn = mysqli_real_escape_string( $link, trim( $_POST[ 'firstname' ] ) ) ; }
 
   # Check for a last name
-  if (empty( $_POST[ 'last_name' ] ) )
+  if (empty( $_POST[ 'lastname' ] ) )
   { $errors[] = 'Enter your last name.' ; }
   else
-  { $ln = mysqli_real_escape_string( $link, trim( $_POST[ 'last_name' ] ) ) ; }
+  { $ln = mysqli_real_escape_string( $link, trim( $_POST[ 'lastname' ] ) ) ; }
 
   # Check for an email address
   if ( empty( $_POST[ 'email' ] ) )
@@ -52,18 +52,32 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
   # On success register user inserting into 'users' database table.
   if ( empty( $errors ) ) 
   {
-    $q = "INSERT INTO users (first_name, last_name, email, pass) 
-	VALUES ('$fn', '$ln', '$e', SHA2('$p',256))";
+    $reg_date = date('Y-m-d H:i:s');
+    $q = "INSERT INTO users (firstname, lastname, email, password, reg_date)
+	VALUES ('$fn', '$ln', '$e', SHA2('$p',256), '$reg_date')";
     $r = @mysqli_query ( $link, $q ) ;
-    if ($r)
-    { echo '<div class="container">
-<div class="alert alert-secondary" role="alert">
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  <span aria-hidden="true">×</span>
-  </button>
-    <h4 class="alert-heading"Registered!</h4>
-    <p>You are now registered.</p>
-    <a class="alert-link" href="login.php">Login</a>'; }
+    if ($r) { 
+      echo '<div class="container">
+              <div class="alert alert-secondary" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="alert-heading"Registered!</h4>
+                <p>You are now registered.</p>
+                <a class="alert-link" href="login.php">Login</a>
+              </div>
+            </div>';
+             } else {
+      echo '<div class="container">
+              <div class="alert alert-secondary" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                  </button>
+                  <h4 class="alert-heading">Error!</h4>
+                  <p>Registration failed. Please try again.</p>
+              </div>
+            </div>';
+      }
   
     # Close database connection.
     mysqli_close($link); 
@@ -123,10 +137,10 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
     <form action="create_account.php" method="POST">
 
         <label for="Name">First Name:</label>
-        <input type="name" id="first_name" name="first_name" placeholder="Enter first name" required><br>
+        <input type="name" id="firstname" name="firstname" placeholder="Enter first name" required><br>
 
         <label for="Name">Last Name:</label>
-        <input type="name" id="last_name" name="last_name" placeholder="Enter last name" required><br>
+        <input type="name" id="lastname" name="lastname" placeholder="Enter last name" required><br>
 
         <label for="email">Email address:</label>
         <input type="email" id="email" name="email" placeholder="Enter email address" required><br>
