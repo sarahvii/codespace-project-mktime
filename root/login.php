@@ -36,23 +36,10 @@ if (isset($_GET['logged_out']) && $_GET['logged_out'] == 'true') {
      <!-- Custom CSS -->
      <link rel="stylesheet" href="styles.css">
      <title>MK Time</title>
+	 <!-- navbar -->
+  <?php include('navbar.php'); ?>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#"><img src="img/mktime.png" alt="MKTime" background-color="#001f3f" width="250" height="71" loading="lazy" class="" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Pricing</a>
-                <a class="nav-link disabled">Disabled</a>
-                <a class="nav-link" href="\mktime\root\login.php">Login</a>
-            </div>
-        </div>
-    </nav>
     <br><br><br>
     <h2><b>Login</b></h2>
     <form action="login_action.php" method="post">
