@@ -30,7 +30,8 @@ if (isset($_GET['query'])) {
 
     $raw_results = mysqli_query($link, "SELECT * FROM `products`
         WHERE (`product_name` LIKE '%" . $query . "%') 
-        OR (`product_desc` LIKE '%" . $query . "%')")
+        OR (`product_desc` LIKE '%" . $query . "%')
+		or (`key_features` LIKE '%" . $query . "%')")
         or die(mysqli_error($link));
 
     if (mysqli_num_rows($raw_results) > 0) {
