@@ -8,15 +8,13 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-link" href="#">Features</a>
-            <a class="nav-link" href="#">Pricing</a>
-            <a class="nav-link disabled">Disabled</a>
-
             <?php
             // Check if the user is logged in
             if (isset($_SESSION['user_id'])) {
                 // Display logout link
-                echo '<a class="nav-link" href="logout.php">Logout</a>';
+                echo '<a class="nav-link" href="#">Shopping Basket</a><br>
+					  <a class="nav-link" href="order_history.php">Order History</a><br>
+					  <a class="nav-link" href="logout.php">Logout</a>';
             } else {
                 // Display login link
                 echo '<a class="nav-link" href="login.php">Login</a>';
