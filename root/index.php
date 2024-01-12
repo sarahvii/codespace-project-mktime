@@ -1,10 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <?php session_start();
+	<?php session_start();
 	include('include/head.php'); ?>
+	
 	<!-- navbar -->
-  <?php include('navbar.php'); ?>
+	
+		<?php include('navbar.php'); ?>
+	
+	
   </head>
   <body>
 <div class="container">
@@ -20,7 +24,6 @@
         die('Could not connect to MySQL: ' . mysqli_error()); 
       } 
       echo 'Connected to the database successfully!'; 
-
 
 echo '<h3 class="text-center"> 
   <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . ' and welcome to MK Time</strong><br>
@@ -38,7 +41,7 @@ echo '<h3 class="text-center">
 
         // output data of each row into product card
         while($row = mysqli_fetch_assoc($result)) {
-          echo '<div class="col-sm-4" >';
+          echo '<div class="col-sm-4">';
           echo '  <div class="card" style="width: 18rem; margin: 5px; transition: box-shadow 0.3s, transform 0.3s; cursor: pointer;" onmouseover="this.style.boxShadow=\'0 4px 8px rgba(0, 0, 0, 0.1)\'; this.style.transform=\'scale(1.05)\'" onmouseout="this.style.boxShadow=\'none\'; this.style.transform=\'none\'">';
 		  echo '<img src="' . $row["product_img"] . '" class="card-img-top" alt="..." style="max-height: 150px;">';
           echo '    <div class="card-body">';
