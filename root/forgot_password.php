@@ -8,23 +8,12 @@
      <!-- Custom CSS -->
      <link rel="stylesheet" href="styles.css">
      <title>MK Time</title>
+	 <!-- navbar -->
+	
+		<?php include('navbar.php'); ?>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="#">MK Time</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Pricing</a>
-                <a class="nav-link disabled">Disabled</a>
-                <a class="nav-link" href="\mktime\root\login.php">Login</a>
-            </div>
-        </div>
-    </nav>
+   
     <br><br><br>
     <h2><b>Forgotten password</b></h2>
     <form action="forgot_password.php" method="post">
@@ -35,7 +24,7 @@
         <hr>
 
         <div class="already-have-account">
-            <a href="login.php">I REMEMBERED MY PASSWORD</a>
+            <a href="login.php">I REMEMBERED MY PASSWORD!</a>
         </div>
 
     </form>
