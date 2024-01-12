@@ -1,10 +1,14 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <?php session_start();
+	<?php session_start();
 	include('include/head.php'); ?>
+	
 	<!-- navbar -->
-  <?php include('navbar.php'); ?>
+	
+		<?php include('navbar.php'); ?>
+	
+	
   </head>
   <body>
 <div class="container">
@@ -20,7 +24,6 @@
         die('Could not connect to MySQL: ' . mysqli_error()); 
       } 
       echo 'Connected to the database successfully!'; 
-
 
 echo '<h3 class="text-center"> 
   <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . ' and welcome to MK Time</strong><br>
