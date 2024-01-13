@@ -60,5 +60,6 @@ if (isset($_GET['logged_out']) && $_GET['logged_out'] == 'true') {
             <p>Don't have an account?<br> <a href="create_account.php">CREATE ACCOUNT</a></p>
         </div>
     </form>
+    <?php include('include/footer.php'); ?>
 </body>
 </html>

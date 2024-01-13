@@ -146,5 +146,6 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
             <a href="login.php">ALREADY HAVE AN ACCOUNT?</a></p>
         </div>
     </form>
+    <?php include('include/footer.php'); ?>
 </body>
 </html>
