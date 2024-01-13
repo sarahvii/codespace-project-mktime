@@ -32,12 +32,15 @@
 	</div>  
 	';
 	}
+	echo '</div>';
 	# Close database connection.
 	mysqli_close( $link) ; 
 	}
 	# Or display message.
 	else { echo '<p>There are currently no items in the table to display.</p>
 	' ; }
-	//include ('include/footer.html');
+	
+	include ('include/footer.php');
 ?>	
+
 	
