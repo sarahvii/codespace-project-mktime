@@ -26,7 +26,7 @@
         <div class="already-have-account">
             <a href="login.php">I REMEMBERED MY PASSWORD!</a>
         </div>
-
-    </form>
+    </form><br>
+    <?php include('include/footer.php'); ?>
 </body>
 </html>
