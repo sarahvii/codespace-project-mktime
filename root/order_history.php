@@ -6,7 +6,7 @@
     $user_id = $_SESSION['user_id'];
 	}
 	
-	include('include/head.php'); ?>
+	include('head.php'); ?>
 	<!-- navbar -->
   <?php include('navbar.php'); ?>
     <title>Order History</title>
@@ -37,7 +37,7 @@
         // output data of each row into product card
         while($row = mysqli_fetch_assoc($result)) {
           echo '<div class="col-sm-4">';
-          echo '  <div class="card" style="width: 18rem; margin: 1px;">';
+          echo '  <div class="card" style="width: 18rem; margin: 5px;">';
 		 
           echo '    <div class="card-body">';
           echo '      <h5 class="card-title">Order date: '.$row["order_date"].'</h5>';
@@ -54,5 +54,6 @@
       mysqli_close($link);
     ?>
 	</div>
+	  <?php include('footer.php'); ?>
 </body>
 </html>

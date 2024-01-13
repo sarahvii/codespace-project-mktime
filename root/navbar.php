@@ -12,7 +12,7 @@
             // Check if the user is logged in
             if (isset($_SESSION['user_id'])) {
                 // Display logout link
-                echo '<a class="nav-link" href="session-cart.php">Shopping Basket</a><br>
+                echo '<a class="nav-link" href="include/session-cart.php">Shopping Basket</a><br>
 					  <a class="nav-link" href="order_history.php">Order History</a><br>	  
 					  <a class="nav-link" href="logout.php">Logout</a>';
             } else {
