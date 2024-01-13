@@ -8,24 +8,25 @@
      <!-- Custom CSS -->
      <link rel="stylesheet" href="styles.css">
      <title>MK Time</title>
-     <!-- navbar -->
-  <?php include('navbar.php'); ?>
+	 <!-- navbar -->
+	
+		<?php include('navbar.php'); ?>
 </head>
 <body>
-    <br>
+   
+    <br><br><br>
     <h2><b>Forgotten password</b></h2>
     <form action="forgot_password.php" method="post">
         <label for="email">Email address:</label>
         <input type="email address" id="email address" name="email address" placeholder="Enter email address" required><br><br>
 
-        <input type="submit" class="btn btn-dark" value="Request password reset"><br><br>
+        <input type="submit" value="Request password reset"><br><br>
         <hr>
 
         <div class="already-have-account">
-            <a href="login.php">I REMEMBERED MY PASSWORD</a>
+            <a href="login.php">I REMEMBERED MY PASSWORD!</a>
         </div>
 
     </form>
-    
 </body>
 </html>

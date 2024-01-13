@@ -1,20 +1,3 @@
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-     <!-- Custom CSS -->
-     <link rel="stylesheet" href="styles.css">
-     <title>MK Time</title>
-      <!-- navbar -->
-  <?php include('navbar.php'); ?>
-</head>
-<body>
 <?php
 
 // uncomment below to check error messages
@@ -120,7 +103,24 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
   }  
 }
 ?>
-    
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+     <!-- Custom CSS -->
+     <link rel="stylesheet" href="styles.css">
+     <title>MK Time</title><!-- navbar -->
+	
+		<?php include('navbar.php'); ?>
+</head>
+<body>
+   
+    <br><br>
     <h2><b>Create account</b></h2>
     <form action="create_account.php" method="POST">
 
@@ -139,7 +139,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
         <label for="password">Repeat Password:</label>
         <input type="password" id="pass2" name="pass2" placeholder="Repeat Password" required><br><br>
 
-        <input type="submit" class="btn btn-dark" value="Create Account"><br><br>
+        <input type="submit" value="Create Account"><br><br>
         <hr>
 
         <div class="already-have-account">
