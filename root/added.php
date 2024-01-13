@@ -29,7 +29,7 @@ if ( mysqli_num_rows( $r ) == 1 )
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<p>Another '.$row["product_name"].' has been added to your cart</p>
-				<a href="user_home.php">Continue Shopping</a> | <a href="cart.php">View Your Cart</a>
+				<a href="home.php">Continue Shopping</a> | <a href="cart.php">View Your Cart</a>
 			</div>
 		</div>';
   } 
