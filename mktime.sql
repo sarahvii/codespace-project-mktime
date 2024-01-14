@@ -123,7 +123,8 @@ CREATE TABLE `products` (
   `product_name` varchar(20) NOT NULL,
   `product_desc` varchar(200) NOT NULL,
   `product_img` varchar(20) NOT NULL,
-  `product_price` decimal(4,2) NOT NULL
+  `product_price` decimal(6,2) NOT NULL,
+  'key_features' varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -131,16 +132,25 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_desc`, `product_img`, `product_price`) VALUES
-(1, 'Schaffhausen', 'A watch for the stylish traveller. Look at all the dials on it! What do they do? No one knows.', 'img/watch1.jpg', 10.99),
-(2, 'Dior', 'Nothing says style and elegance like this Dior Watch. Can you tell the exact time? Who cares, numbers are for people who buy their jeans from Tesco.', 'img/watch2.jpg', 15.99),
-(3, 'Gold', 'Gold! Always believe in your soul. Dress like a Tom Hiddleston love interest who is about to be killed off.', 'img/watch3.jpg', 8.99),
-(4, 'Gucci', 'Nothing is \"a bit much\". Contains fragments of the true cross.', 'img/watch4.jpeg', 12.99),
-(5, 'Heuer', 'With three extra dials and a monochromatic colour scheme, this is the ideal gift for the goth with wanderlust in your life.', 'img/watch5.jpg', 19.99),
-(6, 'Rolex', 'The hallmark of quality, with a strap designed specifically to trap arm hairs.', 'img/watch6.jpg', 7.99),
-(7, 'Retro', 'If you have really small pointy fingertips and little to no ability to do mental arithmetic, this Casio Calculator watch is the one for you.', 'img/watch7.jpg', 14.99),
-(8, 'Classic Leather', 'A watch for Dads', 'img/watch8.jpeg', 9.99),
-(9, 'Longines', 'Swiss made class, something which says you don\'t want to just tell the time, you want to look great doing it.', 'img/watch9.jpg', 11.99),
-(10, 'Rado', 'A retro classic, this gold digital watch is just what you need to distinguish yourself at your local Brewdog pub.', 'img/watch10.jpg', 16.99);
+(1, 'Schaffhausen', 'A watch for the stylish traveller. Look at all the dials on it! What do they do? No one knows.', 'img/watch1.jpg', 1099.99. '*Floating tourbillon with celestial-themed rotor<br>
+*Titanium case with a holographic dial.<br> *Multi-layered sapphire crystal for depth.'),
+(2, 'Dior', 'Nothing says style and elegance like this Dior Watch. Can you tell the exact time? Who cares, numbers are for people who buy their jeans from Tesco.', 'img/watch2.jpg', 1015.99, '*Diamond-encrusted bezel and lugs.<br>
+*Mother-of-pearl dial with rose gold accents.<br> *Moon phase complication with a rotating night sky.<br>'),
+(3, 'Gold', 'Gold! Always believe in your soul. Dress like a Tom Hiddleston love interest who is about to be killed off.', 'img/watch3.jpg', 6698.99, '*Snow white ceramic unidirectional bezel.<br>
+*Gold plated.<br>*12 highest quality dimonds for dazzling effect.'),
+(4, 'Gucci', 'Nothing is \"a bit much\". Contains fragments of the true cross.', 'img/watch4.jpeg', 1102.99, '*Minimalistic and sophisticated display.<br>
+*Platinum case with a transparent case back.<br> *Limited edition with individually numbered pieces.')
+(5, 'Heuer', 'With three extra dials and a monochromatic colour scheme, this is the ideal gift for the goth with wanderlust in your life.', 'img/watch5.jpg', 3219.99. '*Bi-directional rotating compass bezel.<br>
+*Meteorite dial with orbiting date indicator.<br>*Titanium case with a cosmic-inspired crown.'),
+(6, 'Rolex', 'The hallmark of quality, with a strap designed specifically to trap arm hairs.', 'img/watch6.jpg', 5467.99. 'Anti-gravity tourbillon for enhanced precision.<br>
+*Sapphire crystal dial revealing intricate movement.<br>*Aerospace-grade carbon fiber case.'),
+(7, 'Retro', 'If you have really small pointy fingertips and little to no ability to do mental arithmetic, this Casio Calculator watch is the one for you.', 'img/watch7.jpg', 1014.99, '*Perfect blend of nostalgia and practicality for tech enthusiasts.<br> *Water-resistant for everyday wear and casual activities.<br>*Multi-function capabilities: calculator, alarm, stopwatch, and calendar.'),
+(8, 'Classic Leather', 'A watch for Dads', 'img/watch8.jpeg', 1099.99, '*Slide rule bezel for aviation calculations.<br>
+*Vintage-inspired riveted leather strap.<br>*Matte black PVD-coated stainless steel case.'),
+(9, 'Longines', 'Swiss made class, something which says you don''t want to just tell the time, you want to look great doing it.', 'img/watch9.jpg', 2111.99. '*Clean and uncluttered dial featuring only hour markers.<br> *A tribute to classic watchmaking traditions, combining simplicity and sophistication.<br>
+*Timepiece that transcends trends, embodying enduring style and grace.'),
+(10, 'Rado', 'A retro classic, this gold digital watch is just what you need to distinguish yourself at your local Brewdog pub.', 'img/watch10.jpg', 1016.99, '*Titanium smartwatch with traditional watch aesthetics.<br>
+*E-ink display with customizable complications.<br>*Health and fitness tracking capabilities.');
 
 -- --------------------------------------------------------
 
