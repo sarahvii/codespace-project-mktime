@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <a class="navbar-brand" href="#"><img src="img/mktime.png" alt="MKTime" background-color="#001f3f" width="250" height="71" loading="lazy" class="" /></a>
+    <a class="navbar-brand" href="index.php"><img src="img/mktime.png" alt="MKTime" background-color="#001f3f" width="250" height="71" loading="lazy" class="" /></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
