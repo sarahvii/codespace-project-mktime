@@ -27,29 +27,30 @@ SET time_zone = "+00:00";
 -- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
-  `product_id` int(10) UNSIGNED NOT NULL,
-  `product_name` varchar(20) NOT NULL,
-  `product_desc` varchar(200) NOT NULL,
-  `product_img` varchar(20) NOT NULL,
-  `product_price` decimal(4,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE products (
+    product_id int UNSIGNED NOT NULL AUTO_INCREMENT,
+    product_name VARCHAR(20) NOT NULL,
+    product_desc VARCHAR(200) NOT NULL,
+    product_img VARCHAR(20) NOT NULL,
+    product_price DECIMAL(4,2) NOT NULL,
+    PRIMARY KEY (product_id)
+    );
 
 --
 -- Dumping data for table `items`
 --
 
-INSERT INTO `products` (`product_id`, `product_name`, `product_desc`, `product_img`, `product_price`) VALUES
-(1, 'Product 1', 'Description 1', 'image1.jpg', 10.99),
-(2, 'Product 2', 'Description 2', 'image2.jpg', 15.99),
-(3, 'Product 3', 'Description 3', 'image3.jpg', 8.99),
-(4, 'Product 4', 'Description 4', 'image4.jpg', 12.99),
-(5, 'Product 5', 'Description 5', 'image5.jpg', 19.99),
-(6, 'Product 6', 'Description 6', 'image6.jpg', 7.99),
-(7, 'Product 7', 'Description 7', 'image7.jpg', 14.99),
-(8, 'Product 8', 'Description 8', 'image8.jpg', 9.99),
-(9, 'Product 9', 'Description 9', 'image9.jpg', 11.99),
-(10, 'Product 10', 'Description 10', 'image10.jpg', 16.99);
+    INSERT INTO products (product_name, product_desc, product_img, product_price) VALUES
+('Schaffhausen', 'A watch for the stylish traveller. Look at all the dials on it! What do they do? No one knows.', 'img/watch1.jpg', 10.99),
+('Dior', 'Nothing says style and elegance like this Dior Watch. Can you tell the exact time? Who cares, numbers are for people who buy their jeans from Tesco.', 'img/watch2.jpg', 15.99),
+('Gold', 'Gold! Always believe in your soul. Dress like Tom Hiddleston's love interest who's about to be killed off.', 'img/watch3.jpg', 8.99),
+('Gucci', 'Nothing is "a bit much". Contains fragments of the true cross.', 'img/watch4.jpeg', 12.99),
+('Heuer', 'With three extra dials and a monochromatic colour scheme, this is the ideal gift for the goth with wanderlust in your life.', 'img/watch5.jpg', 19.99),
+('Rolex', 'The hallmark of quality, with a strap designed specifically to trap arm hairs.', 'img/watch6.jpg', 7.99),
+('Retro', 'If you have really small pointy fingertips and little to no ability to do mental arithmetic, this Casio Calculator watch is the one for you.', 'img/watch7.jpg', 14.99),
+('Classic Leather', 'A watch for Dads', 'img/watch8.jpeg', 9.99),
+('Longines', 'Swiss made class, something which says you don't want to just tell the time, you want to look great doing it.', 'img/watch9.jpg', 11.99),
+('Rado', 'A retro classic, this gold digital watch is just what you need to distinguish yourself at your local Brewdog pub.', 'img/watch10.jpg', 16.99);
 
 -- --------------------------------------------------------
 
@@ -58,29 +59,30 @@ INSERT INTO `products` (`product_id`, `product_name`, `product_desc`, `product_i
 --
 
 CREATE TABLE `orders` (
-  `order_id` int(10) UNSIGNED NOT NULL AUTO-INCREMENT,
+   order_id int UNSIGNED NOT NULL AUTO_INCREMENT,
   `user_id` int(10) UNSIGNED NOT NULL,
   `product_id` int(10) UNSIGNED NOT NULL,
   `total` decimal(8,2) NOT NULL,
   `order_date` datetime NOT NULL,
-  `payment_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `payment_id` int(10) UNSIGNED NOT NULL,
+    PRIMARY KEY (order_id)
+); 
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`user_id`, `item_id`, `total`, `order_date`, `payment_id`) VALUES
-(1, 1, 21.98, '2023-05-01 00:00:00', 1001),
-(1, 3, 8.99, '2023-05-02 00:00:00', 1002),
-(1, 4, 12.99, '2023-05-10 00:00:00', 1010),
-(2, 1, 21.98, '2023-05-06 00:00:00', 1006),
-(2, 2, 47.97, '2023-05-03 00:00:00', 1003),
-(3, 3, 8.99, '2023-05-07 00:00:00', 1007),
-(3, 5, 39.98, '2023-05-04 00:00:00', 1004),
-(4, 2, 31.98, '2023-05-09 00:00:00', 1009),
-(4, 4, 12.99, '2023-05-05 00:00:00', 1005),
-(5, 5, 59.97, '2023-05-08 00:00:00', 1008);
+INSERT INTO `orders` (`user_id`, `product_id`, `total`, `order_date`, `payment_id`) VALUES
+(1, 1, 21.98, '2023-05-01 00:00:00', 2, 1001),
+(1, 3, 8.99, '2023-05-02 00:00:00', 1, 1002),
+(1, 4, 12.99, '2023-05-10 00:00:00', 1, 1010),
+(2, 1, 21.98, '2023-05-06 00:00:00', 2, 1006),
+(2, 2, 47.97, '2023-05-03 00:00:00', 3, 1003),
+(3, 3, 8.99, '2023-05-07 00:00:00', 1, 1007),
+(3, 5, 39.98, '2023-05-04 00:00:00', 2, 1004),
+(4, 2, 31.98, '2023-05-09 00:00:00', 2, 1009),
+(4, 4, 12.99, '2023-05-05 00:00:00', 1, 1005),
+(5, 5, 59.97, '2023-05-08 00:00:00', 3, 1008);
 
 -- --------------------------------------------------------
 
@@ -89,14 +91,15 @@ INSERT INTO `orders` (`user_id`, `item_id`, `total`, `order_date`, `payment_id`)
 --
 
 CREATE TABLE 'order_contents' (
-    content_id int UNSIGNED NOT NULL AUTO-INCREMENT,
+    content_id int UNSIGNED NOT NULL AUTO_INCREMENT,
     order_id int NOT NULL,
-    item_id int NOT NULL,
+    product_id int NOT NULL,
     quantity int NOT NULL,
     price DECIMAL(10,2) NOT NULL,
+    PRIMARY KEY (content_id)
     );
     
-    INSERT INTO order_contents (order_id, item_id, quantity, price) VALUES
+    INSERT INTO order_contents (order_id, product_id, quantity, price) VALUES
 (1, 1, 2, 10.99),
 (1, 3, 1, 8.99),
 (1, 4, 1, 12.99),
@@ -191,7 +194,7 @@ ALTER TABLE `orders`
 --
 -- Indexes for table `order-contents`
 --
-ALTER TABLE `order-contents`
+ALTER TABLE `order_contents`
   ADD PRIMARY KEY (`content_id`),
   ADD KEY `order_id` (`order_id`),
   ADD KEY `product_id` (`product_id`);
