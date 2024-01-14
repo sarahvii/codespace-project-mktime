@@ -49,7 +49,7 @@ if (isset($_GET['logged_out']) && $_GET['logged_out'] == 'true') {
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter password" required><br><br>
 
-        <input type="submit" value="Login"><br><br>
+        <input type="submit" id=submit_button value="Login"><br><br>
         <hr>
 
         <div class="forgot-password">
