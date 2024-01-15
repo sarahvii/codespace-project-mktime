@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2024 at 12:29 PM
+-- Generation Time: Jan 15, 2024 at 03:00 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `orders` (
   `order_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
-  `product_id` int(11) DEFAULT NULL,
   `total` decimal(8,2) NOT NULL,
   `order_date` datetime NOT NULL,
   `payment_id` int(10) UNSIGNED NOT NULL
@@ -40,17 +39,17 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `user_id`, `product_id`, `total`, `order_date`, `payment_id`) VALUES
-(1, 11, 1, 21.98, '2023-05-01 00:00:00', 1001),
-(2, 12, 3, 8.99, '2023-05-02 00:00:00', 1002),
-(3, 12, 4, 12.99, '2023-05-10 00:00:00', 1010),
-(4, 13, 1, 21.98, '2023-05-06 00:00:00', 1006),
-(5, 13, 2, 47.97, '2023-05-03 00:00:00', 1003),
-(6, 14, 3, 8.99, '2023-05-07 00:00:00', 1007),
-(7, 14, 5, 39.98, '2023-05-04 00:00:00', 1004),
-(8, 15, 2, 31.98, '2023-05-09 00:00:00', 1009),
-(9, 15, 4, 12.99, '2023-05-05 00:00:00', 1005),
-(10, 16, 5, 59.97, '2023-05-08 00:00:00', 1008);
+INSERT INTO `orders` (`order_id`, `user_id`, `total`, `order_date`, `payment_id`) VALUES
+(1, 11, 43.96, '2023-05-01 00:00:00', 1001),
+(2, 12, 69.95, '2023-05-02 00:00:00', 1002),
+(3, 12, 48.97, '2023-05-10 00:00:00', 1010),
+(4, 13, 44.97, '2023-05-06 00:00:00', 1006),
+(5, 13, 59.97, '2023-05-03 00:00:00', 1003),
+(6, 14, 8.99, '2023-05-07 00:00:00', 1007),
+(7, 14, 39.98, '2023-05-04 00:00:00', 1004),
+(8, 15, 31.98, '2023-05-09 00:00:00', 1009),
+(9, 15, 12.99, '2023-05-05 00:00:00', 1005),
+(10, 16, 59.97, '2023-05-08 00:00:00', 1008);
 
 -- --------------------------------------------------------
 
@@ -80,7 +79,8 @@ INSERT INTO `order_contents` (`content_id`, `order_id`, `product_id`, `quantity`
 (7, 3, 5, 2, 19.99),
 (8, 4, 2, 2, 15.99),
 (9, 4, 4, 1, 12.99),
-(10, 5, 5, 3, 19.99);
+(10, 5, 5, 3, 19.99),
+(11, 11, 1, 1, 10.99);
 
 -- --------------------------------------------------------
 
@@ -219,13 +219,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `order_contents`
 --
 ALTER TABLE `order_contents`
-  MODIFY `content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `payment`
