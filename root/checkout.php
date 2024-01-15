@@ -5,8 +5,9 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 include('session.php');
-include('include/navbar.php');
 include('include/head.php');
+include('include/navbar.php');
+
 # Check for passed total and cart.
 if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['cart']) ) )
 {
