@@ -87,7 +87,7 @@ else
    <p>Your cart is currently empty.</p>
 </div>
 </div>' ; }
- include('footer.php');
+ include('include/footer.php');
 ?>
 </body>
 </html>

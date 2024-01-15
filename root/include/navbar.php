@@ -17,7 +17,9 @@
 					  <a class="nav-link" href="logout.php">Logout</a>';
             } else {
                 // Display login link
-                echo '<a class="nav-link" href="login.php">Login</a>';
+                echo '<a class="nav-link" href="login.php">Login</a>
+					  <a class="nav-link" href="create_account.php">Create Account</a>
+				';
             }
             ?>
         </div>

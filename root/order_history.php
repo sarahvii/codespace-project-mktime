@@ -7,7 +7,7 @@
 	}
 	
 	include('include/head.php');
-	<!-- navbar -->
+	
 	include('include/navbar.php'); 
 	?>
 </head>
