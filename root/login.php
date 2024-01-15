@@ -1,10 +1,10 @@
 <?php 
 
-session_start();
+include('session.php');
 
 // uncomment below to check error messages
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
 
 include ( 'include/head.php' ) ;
 # Display any error messages if present.
