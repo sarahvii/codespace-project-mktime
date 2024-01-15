@@ -89,7 +89,7 @@
            echo '
 		<div class="col-md-3 d-flex justify-content-center">
 		<div class="card" style="width: 18rem; margin: 5px; transition: box-shadow 0.3s, transform 0.3s; cursor: pointer;" onmouseover="this.style.boxShadow=\'0 4px 8px rgba(0, 0, 0, 0.1)\'; this.style.transform=\'scale(1.05)\'" onmouseout="this.style.boxShadow=\'none\'; this.style.transform=\'none\'";>
-		<img src="'. $row['product_img'].'" class="card-img-top" alt="'. $row['product_name'].'">
+		<img src="' . $row['product_img'] . '" class="card-img-top" alt="' . $row['product_name'] . '" style="height: 100%; height: 280px; object-fit: cover;">
 		<div class="card-body text-center">
 		<h5 class="card-title">'. $row['product_name'].'</h5>
 		<p class="card-text">'. $row['product_desc'].'</p>
