@@ -1,6 +1,6 @@
 <?php # DISPLAY CHECKOUT PAGE.
-
-include('include/session-cart.php');
+include('include/navbar.php');
+include('session-cart.php');
 # Check for passed total and cart.
 if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['cart']) ) )
 {

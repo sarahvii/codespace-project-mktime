@@ -36,8 +36,23 @@
 				<p class="card-text">Order date: '.$row["order_date"].'</p>
 				<p class="card-text">Total Cost: £'.$row["total"].'</p>
 				<p class="card-text">Payment ID: '.$row["payment_id"].'</p>
-				<h6 class"card-title">Items Ordered:</h6>
+				<h6 class"card-title">Items Ordered:</h6>';
+				
+	 $sql_items = "SELECT oc.*, p.product_name FROM order_contents oc
+                          JOIN products p ON oc.product_id = p.product_id
+                          WHERE oc.order_id = $order_id";
+            $result_items = mysqli_query($link, $sql_items);
+
+            if (mysqli_num_rows($result_items) > 0) {
+                while ($row_items = mysqli_fetch_assoc($result_items)) {
+                echo '<p class="card-text">' . $row_items["product_name"] . ' - Quantity: ' . $row_items["quantity"] . '</p>
 				</div>';
+                }
+            } else {
+                echo '<p class="card-text">No items found in this order.</p>
+				</div>';
+            }
+			
     } else {
       echo "Order not found.";
     }
