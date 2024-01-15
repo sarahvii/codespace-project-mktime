@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2024 at 05:06 PM
+-- Generation Time: Jan 15, 2024 at 12:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,16 +41,16 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `user_id`, `product_id`, `total`, `order_date`, `payment_id`) VALUES
-(1, 1, 1, 21.98, '2023-05-01 00:00:00', 1001),
-(2, 1, 3, 8.99, '2023-05-02 00:00:00', 1002),
-(3, 1, 4, 12.99, '2023-05-10 00:00:00', 1010),
-(4, 2, 1, 21.98, '2023-05-06 00:00:00', 1006),
-(5, 2, 2, 47.97, '2023-05-03 00:00:00', 1003),
-(6, 3, 3, 8.99, '2023-05-07 00:00:00', 1007),
-(7, 3, 5, 39.98, '2023-05-04 00:00:00', 1004),
-(8, 4, 2, 31.98, '2023-05-09 00:00:00', 1009),
-(9, 4, 4, 12.99, '2023-05-05 00:00:00', 1005),
-(10, 5, 5, 59.97, '2023-05-08 00:00:00', 1008);
+(1, 11, 1, 21.98, '2023-05-01 00:00:00', 1001),
+(2, 12, 3, 8.99, '2023-05-02 00:00:00', 1002),
+(3, 12, 4, 12.99, '2023-05-10 00:00:00', 1010),
+(4, 13, 1, 21.98, '2023-05-06 00:00:00', 1006),
+(5, 13, 2, 47.97, '2023-05-03 00:00:00', 1003),
+(6, 14, 3, 8.99, '2023-05-07 00:00:00', 1007),
+(7, 14, 5, 39.98, '2023-05-04 00:00:00', 1004),
+(8, 15, 2, 31.98, '2023-05-09 00:00:00', 1009),
+(9, 15, 4, 12.99, '2023-05-05 00:00:00', 1005),
+(10, 16, 5, 59.97, '2023-05-08 00:00:00', 1008);
 
 -- --------------------------------------------------------
 
@@ -101,16 +101,16 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`payment_id`, `payment_amount`, `account_no`, `bsb_no`, `user_id`) VALUES
-(1001, 50.99, 123456789, 987654, 1),
-(1002, 25.99, 987654321, 123456, 2),
-(1003, 12.99, 456789123, 654321, 3),
-(1004, 35.99, 321654987, 789456, 4),
-(1005, 18.99, 789123456, 456789, 5),
-(1006, 42.99, 654987321, 321654, 1),
-(1007, 29.99, 123789456, 987123, 2),
-(1008, 14.99, 987321654, 456123, 3),
-(1009, 19.99, 456123789, 321987, 4),
-(1010, 31.99, 789456123, 123789, 5);
+(1001, 50.99, 123456789, 987654, 12),
+(1002, 25.99, 987654321, 123456, 13),
+(1003, 12.99, 456789123, 654321, 14),
+(1004, 35.99, 321654987, 789456, 15),
+(1005, 18.99, 789123456, 456789, 16),
+(1006, 42.99, 654987321, 321654, 12),
+(1007, 29.99, 123789456, 987123, 13),
+(1008, 14.99, 987321654, 456123, 14),
+(1009, 19.99, 456123789, 321987, 15),
+(1010, 31.99, 789456123, 123789, 16);
 
 -- --------------------------------------------------------
 
@@ -123,8 +123,8 @@ CREATE TABLE `products` (
   `product_name` varchar(20) NOT NULL,
   `product_desc` varchar(200) NOT NULL,
   `product_img` varchar(20) NOT NULL,
-  `product_price` decimal(6,2) NOT NULL,
-  `key_features` varchar(500) NOT NULL
+  `product_price` decimal(4,2) NOT NULL,
+  `key_features` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -132,25 +132,18 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_desc`, `product_img`, `product_price`, `key_features`) VALUES
-(1, 'Schaffhausen', 'A watch for the stylish traveller. Look at all the dials on it! What do they do? No one knows.', 'img/watch1.jpg', 1099.99, '*Floating tourbillon with celestial-themed rotor<br>
-*Titanium case with a holographic dial.<br> *Multi-layered sapphire crystal for depth.'),
-(2, 'Dior', 'Nothing says style and elegance like this Dior Watch. Can you tell the exact time? Who cares, numbers are for people who buy their jeans from Tesco.', 'img/watch2.jpg', 1015.99, '*Diamond-encrusted bezel and lugs.<br>
-*Mother-of-pearl dial with rose gold accents.<br> *Moon phase complication with a rotating night sky.<br>'),
-(3, 'Gold', 'Gold! Always believe in your soul. Dress like a Tom Hiddleston love interest who is about to be killed off.', 'img/watch3.jpg', 6698.99, '*Snow white ceramic unidirectional bezel.<br>
-*Gold plated.<br>*12 highest quality dimonds for dazzling effect.'),
-(4, 'Gucci', 'Nothing is "a bit much". Contains fragments of the true cross.', 'img/watch4.jpeg', 1102.99, '*Minimalistic and sophisticated display.<br>
-*Platinum case with a transparent case back.<br> *Limited edition with individually numbered pieces.'),
-(5, 'Heuer', 'With three extra dials and a monochromatic colour scheme, this is the ideal gift for the goth with wanderlust in your life.', 'img/watch5.jpg', 3219.99, '*Bi-directional rotating compass bezel.<br>
-*Meteorite dial with orbiting date indicator.<br>*Titanium case with a cosmic-inspired crown.'),
-(6, 'Rolex', 'The hallmark of quality, with a strap designed specifically to trap arm hairs.', 'img/watch6.jpg', 5467.99, 'Anti-gravity tourbillon for enhanced precision.<br>
-*Sapphire crystal dial revealing intricate movement.<br>*Aerospace-grade carbon fiber case.'),
-(7, 'Retro', 'If you have really small pointy fingertips and little to no ability to do mental arithmetic, this Casio Calculator watch is the one for you.', 'img/watch7.jpg', 1014.99, '*Perfect blend of nostalgia and practicality for tech enthusiasts.<br> *Water-resistant for everyday wear and casual activities.<br>*Multi-function capabilities: calculator, alarm, stopwatch, and calendar.'),
-(8, 'Classic Leather', 'A watch for Dads', 'img/watch8.jpeg', 1099.99, '*Slide rule bezel for aviation calculations.<br>
-*Vintage-inspired riveted leather strap.<br>*Matte black PVD-coated stainless steel case.'),
-(9, 'Longines', 'Swiss made class, something which says you don''t want to just tell the time, you want to look great doing it.', 'img/watch9.jpg', 2111.99, '*Clean and uncluttered dial featuring only hour markers.<br> *A tribute to classic watchmaking traditions, combining simplicity and sophistication.<br>
-*Timepiece that transcends trends, embodying enduring style and grace.'),
-(10, 'Rado', 'A retro classic, this gold digital watch is just what you need to distinguish yourself at your local Brewdog pub.', 'img/watch10.jpg', 1016.99, '*Titanium smartwatch with traditional watch aesthetics.<br>
-*E-ink display with customizable complications.<br>*Health and fitness tracking capabilities.');
+(1, 'Schaffhausen', 'A watch for the stylish traveller. Look at all the dials on it! What do they do? No one knows.', 'img/watch1.jpg', 10.99, '18 ct 5N gold case, Automatic, self-winding, Diameter 41.0 mm, Blue alligator leather strap, Strap width 20.0 mm.'),
+(2, 'Dior', 'Nothing says style and elegance like this Dior Watch. Can you tell the exact time? Who cares, numbers are for people who buy their jeans from Tesco.', 'img/watch2.jpg', 15.99, '36mm polished stainless steel case, Water Resistant to 50 metres, White mother of pearl dial, 42 hour power reserve.'),
+(3, 'Gold', 'Gold! Always believe in your soul. Dress like a Tom Hiddleston love interest who is about to be killed off.', 'img/watch3.jpg', 8.99, '24ct 5N gold case, Automatic, self-winding, watch-strap: gold, watch-face: gold, hands: gold. It\'s gold. Gold. '),
+(4, 'Gucci', 'Nothing is \"a bit much\". Contains fragments of the true cross.', 'img/watch4.jpeg', 12.99, 'Yellow gold PVD case, gold sunbrushed dial, marble outlay, 9 links yellow gold PVD bracelet.'),
+(5, 'Heuer', 'With three extra dials and a monochromatic colour scheme, this is the ideal gift for the goth with wanderlust in your life.', 'img/watch5.jpg', 19.99, '43mm gold case, 100 Mikrograph, stopwatch, chronograph.'),
+(6, 'Rolex', 'The hallmark of quality, with a strap designed specifically to trap arm hairs.', 'img/watch6.jpg', 7.99, 'Submariner Date, Oyster, 41mm, Oystersteel and yellow gold, waterproof up to 300m, luminescent Chromalight.'),
+(7, 'Retro', 'If you have really small pointy fingertips and little to no ability to do mental arithmetic, this Casio Calculator watch is the one for you.', 'img/watch7.jpg', 14.99, 'Casio DBC-32, calculator mode, stopwatch,, dual time, an alarm, storage space for up to 25 phone numbers, backlight.'),
+(8, 'Classic Leather', 'A watch for Dads', 'img/watch8.jpeg', 9.99, 'Leather strap, straightforward display, nothing fancy, reliable, little dial thing round the outside so you can try and fail to time things, date.'),
+(9, 'Longines', 'Swiss made class, something which says you don\'t want to just tell the time, you want to look great doing it.', 'img/watch9.jpg', 11.99, '34mm Stainless steel and yellow PVD case, white mother of pear dials, gilt hands. '),
+(10, 'Rado', 'A retro classic, this gold digital watch is just what you need to distinguish yourself at your local Brewdog pub.', 'img/watch10.jpg', 16.99, 'Vintage, digital, quartz, red LED display, original band, 1974.'),
+(11, 'Mitchell Nyan Cat', 'Look, if you know what any of those words mean you should buy this watch.', 'img/watch11.jpg', 99.99, 'Unisex Business Casual Phil Mitchell Nyan Cat watch. Imported Quartz Movement, Silver Stainless Steel Case, Durable And Scratch-resistant Mineral Crystal Dial Window, PU Leather Strap Buckle.'),
+(12, 'Big Ass Watch', 'Why not buy a watch that screams \"I AM NOT INSECURE\"?', 'img/watch12.jpg', 1.00, 'Mens Big Face Watch - Cool Military Wrist Watch Genuine Leather Strap Dual Time Zone Sport Watch Analog Quartz Display with Thermometer Compass.');
 
 -- --------------------------------------------------------
 
@@ -173,17 +166,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `email`, `password`, `reg_date`, `payment_id`) VALUES
-(1, 'John', 'Doe', 'johndoe@example.com', 'password123', '2023-05-01 00:00:00', 1001),
-(2, 'Jane', 'Smith', 'janesmith@example.com', 'p@ssw0rd456', '2023-05-02 00:00:00', 1002),
-(3, 'Michael', 'Johnson', 'michaeljohnson@example.com', 'securepass', '2023-05-03 00:00:00', 1003),
-(4, 'Emily', 'Brown', 'emilybrown@example.com', 'qwerty123', '2023-05-04 00:00:00', 1004),
-(5, 'David', 'Wilson', 'davidwilson@example.com', 'password321', '2023-05-05 00:00:00', 1005),
-(6, 'Sarah', 'Taylor', 'sarahtaylor@example.com', 'safepass', '2023-05-06 00:00:00', 1006),
-(7, 'Matthew', 'Anderson', 'matthewanderson@example.com', 'pass1234', '2023-05-07 00:00:00', 1007),
-(8, 'Olivia', 'Lee', 'olivialee@example.com', 'password789', '2023-05-08 00:00:00', 1008),
-(9, 'Daniel', 'Martinez', 'danielmartinez@example.com', 'danielpass', '2023-05-09 00:00:00', 1009),
-(10, 'Sophia', 'Garcia', 'sophiagarcia@example.com', 'pass4567', '2023-05-10 00:00:00', 1010),
-(11, 'Andrew', 'Coolio', 'a_coolio@email.com', '31bd5a11fce31353df946d229568d17ceb3284e2d51b3dcc7d0f3b2f064cf8b3', '2024-01-11 14:57:58', NULL);
+(11, 'Andrew', 'Coolio', 'a_coolio@email.com', '31bd5a11fce31353df946d229568d17ceb3284e2d51b3dcc7d0f3b2f064cf8b3', '2024-01-11 14:57:58', NULL),
+(12, 'John', 'Doe', 'johndoe@example.com', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f', '2024-01-15 11:56:03', NULL),
+(13, 'Michael', 'Johnson', 'michaeljohnson@example.com', 'fbb4a8a163ffa958b4f02bf9cabb30cfefb40de803f2c4c346a9d39b3be1b544', '2024-01-15 12:04:24', NULL),
+(14, 'Emily', 'Brown', 'emilybrown@example.com', 'daaad6e5604e8e17bd9f108d91e26afe6281dac8fda0091040a7a6d7bd9b43b5', '2024-01-15 12:04:57', NULL),
+(15, 'David', 'Wilson', 'davidwilson@example.com', 'a20aff106fe011d5dd696e3b7105200ff74331eeb8e865bb80ebd82b12665a07', '2024-01-15 12:05:28', NULL),
+(16, 'Sarah', 'Taylor', 'sarahtaylor@example.com', '5b601e6b0a166389a2be57d276bd2e4bbe0e7f689a7d287af6a7079efc6e34c7', '2024-01-15 12:05:49', NULL),
+(17, 'Matthew', 'Anderson', 'matthewanderson@example.com', 'bd94dcda26fccb4e68d6a31f9b5aac0b571ae266d822620e901ef7ebe3a11d4f', '2024-01-15 12:06:14', NULL),
+(18, 'Olivia', 'Lee', 'olivialee@example.com', '5efc2b017da4f7736d192a74dde5891369e0685d4d38f2a455b6fcdab282df9c', '2024-01-15 12:08:18', NULL),
+(19, 'Daniel', 'Martinez', 'danielmartinez@example.com', '2e8edcbf091ab6a39ae55a0c9c7a00f793c39683898937d8760e04017c98d2d8', '2024-01-15 12:08:53', NULL),
+(20, 'Sophia', 'Garcia', 'sophiagarcia@example.com', 'ced75643425df8422f6b947248904aad4b0a471da94c6618be2819b8fb455e77', '2024-01-15 12:10:22', NULL);
 
 --
 -- Indexes for dumped tables
@@ -245,13 +237,13 @@ ALTER TABLE `payment`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
