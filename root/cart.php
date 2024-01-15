@@ -3,10 +3,6 @@
   <head>
   <?php # DISPLAY SHOPPING CART PAGE.
 
-// uncomment below to check error messages
-// ini_set('display_errors', 1);
-// error_reporting(E_ALL);
-
 include('session.php');
 include('include/head.php');
 include('include/navbar.php');
@@ -15,6 +11,7 @@ include('include/navbar.php');
   </head>
   <body>
   <?php
+
 # Check if form has been submitted for update.
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
 {
@@ -48,9 +45,13 @@ if (!empty($_SESSION['cart']))
 
   # Display body section with a form and a table.
   echo '<form action="cart.php" method="post">
-	  <table class="table">
+	  <table class="table" style="width: 200%;">
 	   <thead>
-	    <tr><th>Items in your cart</th></tr>
+	    <tr>
+      <th>Items in your cart</th>
+      <th>Quantity</th>
+      <th>Unit Price</th>
+      <th>Cost</th>
 	   </thead>
 	   <tbody>
 	  <tr>';
@@ -61,11 +62,17 @@ if (!empty($_SESSION['cart']))
     $total += $subtotal;
 
     # Display the row/s:
-    echo "<tr><td>{$row['product_name']}</td> 
-    <td><input type=\"text\" size=\"3\" name=\"qty[{$row['product_id']}]\" value=\"{$_SESSION['cart'][$row['product_id']]['quantity']}\"></td>
-    <td>@ {$row['product_price']} = </td> 
-	
-	<td> £ ".number_format ($subtotal, 2)."</td></tr>";
+    echo "<tr>
+        <td><img src='{$row['product_img']}' alt='{$row['product_name']}' style='width: 150px; height: 100px;'></td>
+        <td>
+          <input type=\"text\" size=\"2\" name=\"qty[{$row['product_id']}]\" value=\"{$_SESSION['cart'][$row['product_id']]['quantity']}\">
+          <button type=\"button\" onclick=\"updateQuantity('{$row['product_id']}', 'increment')\">+</button>
+          <button type=\"button\" onclick=\"updateQuantity('{$row['product_id']}', 'decrement')\">-</button>
+          <button type=\"button\" onclick=\"updateQuantity('{$row['product_id']}', 'remove')\">Remove</button>
+        </td>
+        <td>@ {$row['product_price']} = </td> 
+        <td> £ ".number_format ($subtotal, 2)."</td>
+      </tr>";
   }
   
   # Close the database connection.
@@ -79,20 +86,33 @@ if (!empty($_SESSION['cart']))
   <td><input type="submit" name="submit" class="btn btn-light btn-block" value="Update My Cart"></td>
   </tr>
   <tr><td></td><td></td><td></td>
-  <td><a href="checkout.php?total='.$total.'" class="btn btn-light btn-block">Checkout Now</a></td>
+  <td><a href="checkout.php?total='.$total.'" class="btn btn-dark btn-block">Checkout Now</a></td>
   </table>
   </form>';
 }
-else
+  else {
 # Or display a message.
-{ echo '<div class="alert alert-secondary" role="alert">
+echo '<div class="alert alert-secondary" role="alert">
    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	<span aria-hidden="true">×</span>
    </button>
    <p>Your cart is currently empty.</p>
-</div>
 </div>' ; }
  include('include/footer.php');
 ?>
+<script>
+function updateQuantity(productId, action) {
+    var quantityInput = document.getElementsByName('qty[' + productId + ']')[0];
+    var currentQuantity = parseInt(quantityInput.value);
+
+    if (action === 'increment') {
+        quantityInput.value = currentQuantity + 1;
+    } else if (action === 'decrement' && currentQuantity > 1) {
+        quantityInput.value = currentQuantity - 1;
+    } else if (action === 'remove') {
+        quantityInput.value = 0;
+    }
+}
+</script>
 </body>
 </html>
