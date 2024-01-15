@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2024 at 03:00 PM
+-- Generation Time: Jan 15, 2024 at 05:07 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -49,7 +49,9 @@ INSERT INTO `orders` (`order_id`, `user_id`, `total`, `order_date`, `payment_id`
 (7, 14, 39.98, '2023-05-04 00:00:00', 1004),
 (8, 15, 31.98, '2023-05-09 00:00:00', 1009),
 (9, 15, 12.99, '2023-05-05 00:00:00', 1005),
-(10, 16, 59.97, '2023-05-08 00:00:00', 1008);
+(10, 16, 59.97, '2023-05-08 00:00:00', 1008),
+(12, 12, 109.98, '2024-01-15 14:47:49', 0),
+(13, 11, 399.96, '2024-01-15 15:22:52', 0);
 
 -- --------------------------------------------------------
 
@@ -80,7 +82,11 @@ INSERT INTO `order_contents` (`content_id`, `order_id`, `product_id`, `quantity`
 (8, 4, 2, 2, 15.99),
 (9, 4, 4, 1, 12.99),
 (10, 5, 5, 3, 19.99),
-(11, 11, 1, 1, 10.99);
+(11, 11, 1, 1, 10.99),
+(12, 12, 3, 1, 8.99),
+(13, 12, 11, 1, 99.99),
+(14, 12, 12, 1, 1.00),
+(15, 13, 11, 4, 99.99);
 
 -- --------------------------------------------------------
 
@@ -219,13 +225,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `order_contents`
 --
 ALTER TABLE `order_contents`
-  MODIFY `content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `payment`
