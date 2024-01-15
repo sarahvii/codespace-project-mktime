@@ -28,7 +28,7 @@ await driver.findElement(By.id("submit_button")).click();
 // Wait for the page to load and assert the expcted URL
 await driver.wait(async function() { 
     const currentURL = await driver.getCurrentUrl();
-    assert.strictEqual(currentURL, "http://localhost/mktime/root/home.php");
+    assert.strictEqual(currentURL, "http://localhost/mktime/root/index.php");
     return true;
 });
 

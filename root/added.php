@@ -1,9 +1,12 @@
 
 <?php
 
+// uncomment below to check error messages
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+
 # Set page title and display header section.
-include('include/navbar.php');
-include ('session-cart.php');
+include ('session.php');
 
 # Get passed product id and assign it to a variable.
 if ( isset( $_GET['id'] ) ) $id = $_GET['id'] ; 
@@ -30,7 +33,7 @@ if ( mysqli_num_rows( $r ) == 1 )
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<p>Another '.$row["product_name"].' has been added to your cart</p>
-				<a href="home.php">Continue Shopping</a> | <a href="cart.php">View Your Cart</a>
+				<a href="index.php">Continue Shopping</a> | <a href="cart.php">View Your Cart</a>
 			</div>
 		</div>';
   } 
@@ -44,12 +47,40 @@ if ( mysqli_num_rows( $r ) == 1 )
 					<span aria-hidden="true">&times;</span>
 				</button>
 				<p>A '.$row["product_name"].' has been added to your cart</p>
-			<a href="home.php">Continue Shopping</a> | <a href="cart.php">View Your Cart</a>
+			<a href="index.php">Continue Shopping</a> | <a href="cart.php">View Your Cart</a>
 			</div>
 		</div>' ;
   }
 }
+?>
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <?php include('include/head.php'); ?>
+	</head>
+  <body>
+     <div class="container">
+<?php
+      // connect to db
+      $link = mysqli_connect('localhost', 'root', '', 'mktime');
+      if (!$link) {
+        die('Could not connect to MySQL: ' . mysqli_error());
+      }
+      echo 'Connected to the database successfully!';
+
+      echo '<h3 class="text-center"> 
+          <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . '. Here is your shopping basket.</strong><br>
+          <br>
+      </h3>';
+      ?>
+	</div>
+	
+	</body>
+  </html>
+
+  <?php
+  
 # Close database connection.
 mysqli_close($link);
 

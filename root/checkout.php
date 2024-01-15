@@ -1,6 +1,10 @@
 <?php # DISPLAY CHECKOUT PAGE.
-include('include/navbar.php');
-include('session-cart.php');
+
+// uncomment below to check error messages
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+include('session.php');
 # Check for passed total and cart.
 if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['cart']) ) )
 {
