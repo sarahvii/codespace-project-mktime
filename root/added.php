@@ -17,7 +17,6 @@
 // error_reporting(E_ALL);
 
 
-
 # Get passed product id and assign it to a variable.
 if ( isset( $_GET['id'] ) ) $id = $_GET['id'] ; 
 
@@ -62,6 +61,7 @@ if ( mysqli_num_rows( $r ) == 1 )
 		</div>' ;
   }
 }
+
 ?>
 
 <!DOCTYPE html>
