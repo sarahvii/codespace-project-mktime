@@ -7,6 +7,7 @@
 
 # Set page title and display header section.
 include ('session.php');
+include('include/navbar.php');
 
 # Get passed product id and assign it to a variable.
 if ( isset( $_GET['id'] ) ) $id = $_GET['id'] ; 
@@ -52,6 +53,7 @@ if ( mysqli_num_rows( $r ) == 1 )
 		</div>' ;
   }
 }
+
 ?>
 
 <!DOCTYPE html>
