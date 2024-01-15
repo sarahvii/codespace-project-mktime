@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <?php
-    session_start();
+    include('session.php');
     include('include/head.php');
     include('include/navbar.php');
     ?>
