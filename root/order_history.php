@@ -38,22 +38,24 @@
         // output data of each row into product card
         while($row = mysqli_fetch_assoc($result)) {
           echo '<div class="col-sm-4">';
-          echo '  <div class="card" style="width: 18rem; margin: 1px;">';
+          echo '  <div class="card" style="width: 18rem; margin: 5px;">';
 		 
-          echo '    <div class="card-body">';
-          echo '      <h5 class="card-title">Order date: '.$row["order_date"].'</h5>';
-          echo '      <p class="card-text">ID: '.$row["order_id"].'</p>';
-          echo '      <p class="card-text">Price: £'.$row["total"].'</p>';
-          echo '    </div>';
-          echo '  </div>';
-          echo '</div>';
+          echo '    <div class="card-body">
+				<h5 class="card-title">Order # '.$row["order_id"].'</h5>
+				<p class="card-text">Order date: '.$row["order_date"].'</p>
+				<p class="card-text">Total Cost: £'.$row["total"].'</p>
+				<a href="order_details.php?id=' . $row["product_id"] . '" class="btn btn-secondary btn-block">Order details</a>
+					</div>
+					</div>
+					</div>';
         }
         echo '</div>';
       } else {
         echo "0 results";
       }
       mysqli_close($link);
-    ?>
+	?>
 	</div>
+	<?php  include('include/footer.php'); ?>
 </body>
 </html>

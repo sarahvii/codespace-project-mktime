@@ -2,7 +2,8 @@
 <?php
 
 # Set page title and display header section.
-include ('include/session-cart.php');
+include('include/navbar.php');
+include ('session-cart.php');
 
 # Get passed product id and assign it to a variable.
 if ( isset( $_GET['id'] ) ) $id = $_GET['id'] ; 
@@ -52,4 +53,5 @@ if ( mysqli_num_rows( $r ) == 1 )
 # Close database connection.
 mysqli_close($link);
 
+include('include/footer.php');
 ?>
