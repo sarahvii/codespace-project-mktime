@@ -1,7 +1,15 @@
-<?php # DISPLAY SHOPPING CART PAGE.
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <?php # DISPLAY SHOPPING CART PAGE.
 
-include('include/session-cart.php');
-
+include('include/head.php');
+include('include/navbar.php');
+include('session-cart.php');
+?>
+  </head>
+  <body>
+  <?php
 # Check if form has been submitted for update.
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' )
 {
@@ -79,5 +87,7 @@ else
    <p>Your cart is currently empty.</p>
 </div>
 </div>' ; }
-
+ include('footer.php');
 ?>
+</body>
+</html>
