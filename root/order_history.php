@@ -6,11 +6,12 @@
     $user_id = $_SESSION['user_id'];
 	}
 	
-	include('include/head.php'); ?>
+	include('include/head.php');
 	<!-- navbar -->
-  <?php include('navbar.php'); ?>
-    <title>Order History</title>
+	include('include/navbar.php'); 
+	?>
 </head>
+
 <body>
 <div class="container">
 

@@ -30,7 +30,7 @@
       <div class="col-md-4 col-12 mx-auto">
           <p> For exclusive personal experience visit us <br>
            <p>129 Bath St, Glasgow <br>
-             G2 2SZ Lanarkshire <br>
+             G2 2SZ Lancashire <br>
             Scotland </p>
             </div>
         <div class="col-md-4 col-12 mx-auto">

@@ -4,17 +4,26 @@
     <?php
     session_start();
     include('include/head.php');
-    include('navbar.php');
+    include('include/navbar.php');
     ?>
   </head>
 
   <body>
     <div class="container">
+		<div class='search-form'>
 	 <form action="index.php" method="GET">
         <input type="text" name="query" />
         <input type="submit" value="Search" />
         <a href="index.php">Clear Search</a>
       </form>
+	  </div>
+	  <style>
+    .search-form {
+		width: 50%; 
+        margin: 0 200px;
+        text-align: center;
+    }
+</style>
       <br>
       <?php
       // connect to db
@@ -45,18 +54,27 @@
           or die(mysqli_error($link));
 
         if (mysqli_num_rows($raw_results) > 0) {
+			 echo '<div class="row">';
           while ($row = mysqli_fetch_assoc($raw_results)) {
-             echo '<div class="col-sm-4">';
-            echo '  <div class="card" style="width: 18rem; margin: 5px; transition: box-shadow 0.3s, transform 0.3s; cursor: pointer;" onmouseover="this.style.boxShadow=\'0 4px 8px rgba(0, 0, 0, 0.1)\'; this.style.transform=\'scale(1.05)\'" onmouseout="this.style.boxShadow=\'none\'; this.style.transform=\'none\'">';
-            echo '<img src="' . $row["product_img"] . '" class="card-img-top" alt="..." style="max-height: 150px;">';
-            echo '    <div class="card-body">';
-            echo '      <h5 class="card-title">' . $row["product_name"] . '</h5>';
-            echo '      <p class="card-text">' . $row["product_desc"] . '</p>';
-            echo '      <p class="card-text">Price: £' . $row["product_price"] . '</p>';
-            echo '      <a href="product_details.php?id=' . $row["product_id"] . '" class="btn btn-dark">Product details</a>';
-            echo '    </div>';
-            echo '  </div>';
-            echo '</div>';
+             	echo '
+		<div class="col-md-3 d-flex justify-content-center">
+		<div class="card" style="width: 18rem; margin: 5px; transition: box-shadow 0.3s, transform 0.3s; cursor: pointer;" onmouseover="this.style.boxShadow=\'0 4px 8px rgba(0, 0, 0, 0.1)\'; this.style.transform=\'scale(1.05)\'" onmouseout="this.style.boxShadow=\'none\'; this.style.transform=\'none\'";>
+		<img src="'. $row['product_img'].'" class="card-img-top" alt="'. $row['product_name'].'">
+		<div class="card-body text-center">
+		<h5 class="card-title">'. $row['product_name'].'</h5>
+		<p class="card-text">'. $row['product_desc'].'</p>
+		</div>
+		<div class="card-footer bg-transparent border-dark text-center">
+		<p class="card-text">&pound '. $row['product_price'].'</p>
+		</div>
+		<div class="card-footer text-muted">
+		<a href="added.php?id='.$row['product_id'].'" class="btn btn-primary btn-block">Add to Cart</a>
+		<br>
+		<a href="product_details.php?id=' . $row["product_id"] . '" class="btn btn-secondary btn-block">Product details</a>
+		</div>
+		</div>
+		</div>  
+	';
           }
         }
       } else {
@@ -68,17 +86,25 @@
           echo '<div class="row">';
           // Fetch and display all products
           while ($row = mysqli_fetch_assoc($result)) {
-            echo '<div class="col-sm-4">';
-             echo '  <div class="card" style="width: 18rem; margin: 5px; transition: box-shadow 0.3s, transform 0.3s; cursor: pointer;" onmouseover="this.style.boxShadow=\'0 4px 8px rgba(0, 0, 0, 0.1)\'; this.style.transform=\'scale(1.05)\'" onmouseout="this.style.boxShadow=\'none\'; this.style.transform=\'none\'">';
-            echo '<img src="' . $row["product_img"] . '" class="card-img-top" alt="..." style="max-height: 150px;">';
-            echo '    <div class="card-body">';
-            echo '      <h5 class="card-title">' . $row["product_name"] . '</h5>';
-            echo '      <p class="card-text">' . $row["product_desc"] . '</p>';
-            echo '      <p class="card-text">Price: £' . $row["product_price"] . '</p>';
-            echo '      <a href="product_details.php?id=' . $row["product_id"] . '" class="btn btn-dark">Product details</a>';
-            echo '    </div>';
-            echo '  </div>';
-            echo '</div>';
+           echo '
+		<div class="col-md-3 d-flex justify-content-center">
+		<div class="card" style="width: 18rem; margin: 5px; transition: box-shadow 0.3s, transform 0.3s; cursor: pointer;" onmouseover="this.style.boxShadow=\'0 4px 8px rgba(0, 0, 0, 0.1)\'; this.style.transform=\'scale(1.05)\'" onmouseout="this.style.boxShadow=\'none\'; this.style.transform=\'none\'";>
+		<img src="'. $row['product_img'].'" class="card-img-top" alt="'. $row['product_name'].'">
+		<div class="card-body text-center">
+		<h5 class="card-title">'. $row['product_name'].'</h5>
+		<p class="card-text">'. $row['product_desc'].'</p>
+		</div>
+		<div class="card-footer bg-transparent border-dark text-center">
+		<p class="card-text">&pound '. $row['product_price'].'</p>
+		</div>
+		<div class="card-footer text-muted">
+		<a href="added.php?id='.$row['product_id'].'" class="btn btn-primary btn-block">Add to Cart</a>
+		<br>
+		<a href="product_details.php?id=' . $row["product_id"] . '" class="btn btn-secondary btn-block">Product details</a>
+		</div>
+		</div>
+		</div>  
+	';
           }
         }
       }
@@ -87,6 +113,6 @@
       ?>
     </div>
     </div>
-    <?php include('include/footer.php'); ?>
+    <?php include('footer.php'); ?>
   </body>
 </html>
