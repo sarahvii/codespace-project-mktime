@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php session_start();
-	if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-	}
-	
-	include('include/head.php');
-	
-	include('include/navbar.php'); 
-	?>
+<?php
+    include('session.php');
+    include('include/head.php');
+    include('include/navbar.php');
+    ?>
 </head>
 
 <body>
