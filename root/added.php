@@ -1,12 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <?php
+   # Set page title and display header section.
+	include ('session.php');
+    include('include/head.php');
+    include('include/navbar.php');
+    ?>
+  </head>
 
+  <body>
 <?php
 
 // uncomment below to check error messages
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL);
 
-# Set page title and display header section.
-include ('session.php');
+
 
 # Get passed product id and assign it to a variable.
 if ( isset( $_GET['id'] ) ) $id = $_GET['id'] ; 

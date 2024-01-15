@@ -3,6 +3,9 @@
 <head>
 <?php
     include('session.php');
+	if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+	}
     include('include/head.php');
     include('include/navbar.php');
     ?>
@@ -40,7 +43,7 @@
 				<h5 class="card-title">Order # '.$row["order_id"].'</h5>
 				<p class="card-text">Order date: '.$row["order_date"].'</p>
 				<p class="card-text">Total Cost: £'.$row["total"].'</p>
-				<a href="order_details.php?id=' . $row["product_id"] . '" class="btn btn-secondary btn-block">Order details</a>
+				<a href="order_details.php?id=' . $row["order_id"] . '" class="btn btn-secondary btn-block">Order details</a>
 					</div>
 					</div>
 					</div>';
