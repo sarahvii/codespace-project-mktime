@@ -16,10 +16,7 @@
 
 <?php
 // connect to the database
-$link = mysqli_connect('localhost', 'root', '', 'mktime');
-if (!$link) {
-    die('Could not connect: ' . mysqli_error());
-}
+require('connect_db.php');
 
 // Initialize $results variable
 $results = array();

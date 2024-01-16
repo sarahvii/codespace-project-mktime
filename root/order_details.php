@@ -14,11 +14,7 @@
   <?php
  
         //connect to db
-      $link = mysqli_connect('localhost','root','','mktime'); 
-      if (!$link) { 
-        die('Could not connect to MySQL: ' . mysqli_error()); 
-      } 
-      echo 'Connected to the database successfully!';
+        require('connect_db.php');
 	  
 	    // get order id from URL
 		$order_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
