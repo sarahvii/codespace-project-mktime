@@ -19,10 +19,7 @@
   
   
         //connect to db
-      $link = mysqli_connect('localhost','root','','mktime'); 
-      if (!$link) { 
-        die('Could not connect to MySQL: ' . mysqli_error()); 
-      } 
+        require('connect_db.php');
 
 	  echo'<h1>Order History</h1>';
 	  

@@ -11,10 +11,7 @@
 <div class="container">
     <?php
     // connect to the database
-    $link = mysqli_connect('localhost', 'root', '', 'mktime');
-    if (!$link) {
-      die('Could not connect: ' . mysqli_error());
-    }
+    require('connect_db.php');
 
     // get product ID from URL
     $product_id = isset($_GET['id']) ? intval($_GET['id']) : 0;

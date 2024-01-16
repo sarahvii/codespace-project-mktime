@@ -26,11 +26,7 @@
 </style>
       <br>
       <?php
-      // connect to db
-      $link = mysqli_connect('localhost', 'root', '', 'mktime');
-      if (!$link) {
-        die('Could not connect to MySQL: ' . mysqli_error());
-      }
+      require('connect_db.php');
 
       echo '<h3 class="text-center"> 
           <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . ' and welcome to MK Time</strong><br>
