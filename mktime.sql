@@ -132,25 +132,24 @@ CREATE TABLE `users` (
   `lastname` varchar(40) NOT NULL,
   `email` varchar(60) NOT NULL,
   `password` varchar(64) NOT NULL,
-  `reg_date` datetime NOT NULL,
-  `payment_id` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `reg_date` datetime NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `email`, `password`, `reg_date`, `payment_id`) VALUES
-(11, 'Andrew', 'Coolio', 'a_coolio@email.com', '31bd5a11fce31353df946d229568d17ceb3284e2d51b3dcc7d0f3b2f064cf8b3', '2024-01-11 14:57:58', NULL),
-(12, 'John', 'Doe', 'johndoe@example.com', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f', '2024-01-15 11:56:03', NULL),
-(13, 'Michael', 'Johnson', 'michaeljohnson@example.com', 'fbb4a8a163ffa958b4f02bf9cabb30cfefb40de803f2c4c346a9d39b3be1b544', '2024-01-15 12:04:24', NULL),
-(14, 'Emily', 'Brown', 'emilybrown@example.com', 'daaad6e5604e8e17bd9f108d91e26afe6281dac8fda0091040a7a6d7bd9b43b5', '2024-01-15 12:04:57', NULL),
-(15, 'David', 'Wilson', 'davidwilson@example.com', 'a20aff106fe011d5dd696e3b7105200ff74331eeb8e865bb80ebd82b12665a07', '2024-01-15 12:05:28', NULL),
-(16, 'Sarah', 'Taylor', 'sarahtaylor@example.com', '5b601e6b0a166389a2be57d276bd2e4bbe0e7f689a7d287af6a7079efc6e34c7', '2024-01-15 12:05:49', NULL),
-(17, 'Matthew', 'Anderson', 'matthewanderson@example.com', 'bd94dcda26fccb4e68d6a31f9b5aac0b571ae266d822620e901ef7ebe3a11d4f', '2024-01-15 12:06:14', NULL),
-(18, 'Olivia', 'Lee', 'olivialee@example.com', '5efc2b017da4f7736d192a74dde5891369e0685d4d38f2a455b6fcdab282df9c', '2024-01-15 12:08:18', NULL),
-(19, 'Daniel', 'Martinez', 'danielmartinez@example.com', '2e8edcbf091ab6a39ae55a0c9c7a00f793c39683898937d8760e04017c98d2d8', '2024-01-15 12:08:53', NULL),
-(20, 'Sophia', 'Garcia', 'sophiagarcia@example.com', 'ced75643425df8422f6b947248904aad4b0a471da94c6618be2819b8fb455e77', '2024-01-15 12:10:22', NULL);
+INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `email`, `password`, `reg_date`) VALUES
+(11, 'Andrew', 'Coolio', 'a_coolio@email.com', '31bd5a11fce31353df946d229568d17ceb3284e2d51b3dcc7d0f3b2f064cf8b3', '2024-01-11 14:57:58'),
+(12, 'John', 'Doe', 'johndoe@example.com', 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f', '2024-01-15 11:56:03'),
+(13, 'Michael', 'Johnson', 'michaeljohnson@example.com', 'fbb4a8a163ffa958b4f02bf9cabb30cfefb40de803f2c4c346a9d39b3be1b544', '2024-01-15 12:04:24'),
+(14, 'Emily', 'Brown', 'emilybrown@example.com', 'daaad6e5604e8e17bd9f108d91e26afe6281dac8fda0091040a7a6d7bd9b43b5', '2024-01-15 12:04:57'),
+(15, 'David', 'Wilson', 'davidwilson@example.com', 'a20aff106fe011d5dd696e3b7105200ff74331eeb8e865bb80ebd82b12665a07', '2024-01-15 12:05:28'),
+(16, 'Sarah', 'Taylor', 'sarahtaylor@example.com', '5b601e6b0a166389a2be57d276bd2e4bbe0e7f689a7d287af6a7079efc6e34c7', '2024-01-15 12:05:49'),
+(17, 'Matthew', 'Anderson', 'matthewanderson@example.com', 'bd94dcda26fccb4e68d6a31f9b5aac0b571ae266d822620e901ef7ebe3a11d4f', '2024-01-15 12:06:14'),
+(18, 'Olivia', 'Lee', 'olivialee@example.com', '5efc2b017da4f7736d192a74dde5891369e0685d4d38f2a455b6fcdab282df9c', '2024-01-15 12:08:18'),
+(19, 'Daniel', 'Martinez', 'danielmartinez@example.com', '2e8edcbf091ab6a39ae55a0c9c7a00f793c39683898937d8760e04017c98d2d8', '2024-01-15 12:08:53'),
+(20, 'Sophia', 'Garcia', 'sophiagarcia@example.com', 'ced75643425df8422f6b947248904aad4b0a471da94c6618be2819b8fb455e77', '2024-01-15 12:10:22');
 
 --
 -- Indexes for dumped tables

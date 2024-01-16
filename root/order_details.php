@@ -30,7 +30,6 @@
 	  echo '	<h5 class="card-title">Order # '.$row["order_id"].'</h5>
 				<p class="card-text">Order date: '.$row["order_date"].'</p>
 				<p class="card-text">Total Cost: £'.$row["total"].'</p>
-				<p class="card-text">Payment ID: '.$row["payment_id"].'</p>
 				<h6 class"card-title">Items Ordered:</h6>';
 				
 $sql_items = "SELECT oc.*, p.product_name, p.product_img, p.product_price 
