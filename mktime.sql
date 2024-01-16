@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 15, 2024 at 05:07 PM
+-- Generation Time: Jan 16, 2024 at 07:36 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,27 +31,26 @@ CREATE TABLE `orders` (
   `order_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `total` decimal(8,2) NOT NULL,
-  `order_date` datetime NOT NULL,
-  `payment_id` int(10) UNSIGNED NOT NULL
+  `order_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `user_id`, `total`, `order_date`, `payment_id`) VALUES
-(1, 11, 43.96, '2023-05-01 00:00:00', 1001),
-(2, 12, 69.95, '2023-05-02 00:00:00', 1002),
-(3, 12, 48.97, '2023-05-10 00:00:00', 1010),
-(4, 13, 44.97, '2023-05-06 00:00:00', 1006),
-(5, 13, 59.97, '2023-05-03 00:00:00', 1003),
-(6, 14, 8.99, '2023-05-07 00:00:00', 1007),
-(7, 14, 39.98, '2023-05-04 00:00:00', 1004),
-(8, 15, 31.98, '2023-05-09 00:00:00', 1009),
-(9, 15, 12.99, '2023-05-05 00:00:00', 1005),
-(10, 16, 59.97, '2023-05-08 00:00:00', 1008),
-(12, 12, 109.98, '2024-01-15 14:47:49', 0),
-(13, 11, 399.96, '2024-01-15 15:22:52', 0);
+INSERT INTO `orders` (`order_id`, `user_id`, `total`, `order_date`) VALUES
+(1, 11, 43.96, '2023-05-01 00:00:00'),
+(2, 12, 69.95, '2023-05-02 00:00:00'),
+(3, 12, 48.97, '2023-05-10 00:00:00'),
+(4, 13, 44.97, '2023-05-06 00:00:00'),
+(5, 13, 59.97, '2023-05-03 00:00:00'),
+(6, 14, 8.99, '2023-05-07 00:00:00'),
+(7, 14, 39.98, '2023-05-04 00:00:00'),
+(8, 15, 31.98, '2023-05-09 00:00:00'),
+(9, 15, 12.99, '2023-05-05 00:00:00'),
+(10, 16, 59.97, '2023-05-08 00:00:00'),
+(12, 12, 109.98, '2024-01-15 14:47:49'),
+(13, 11, 399.96, '2024-01-15 15:22:52');
 
 -- --------------------------------------------------------
 
@@ -87,36 +86,6 @@ INSERT INTO `order_contents` (`content_id`, `order_id`, `product_id`, `quantity`
 (13, 12, 11, 1, 99.99),
 (14, 12, 12, 1, 1.00),
 (15, 13, 11, 4, 99.99);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `payment`
---
-
-CREATE TABLE `payment` (
-  `payment_id` int(10) UNSIGNED NOT NULL,
-  `payment_amount` decimal(6,2) NOT NULL,
-  `account_no` int(10) NOT NULL,
-  `bsb_no` int(10) NOT NULL,
-  `user_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`payment_id`, `payment_amount`, `account_no`, `bsb_no`, `user_id`) VALUES
-(1001, 50.99, 123456789, 987654, 12),
-(1002, 25.99, 987654321, 123456, 13),
-(1003, 12.99, 456789123, 654321, 14),
-(1004, 35.99, 321654987, 789456, 15),
-(1005, 18.99, 789123456, 456789, 16),
-(1006, 42.99, 654987321, 321654, 12),
-(1007, 29.99, 123789456, 987123, 13),
-(1008, 14.99, 987321654, 456123, 14),
-(1009, 19.99, 456123789, 321987, 15),
-(1010, 31.99, 789456123, 123789, 16);
 
 -- --------------------------------------------------------
 
@@ -200,12 +169,6 @@ ALTER TABLE `order_contents`
   ADD PRIMARY KEY (`content_id`);
 
 --
--- Indexes for table `payment`
---
-ALTER TABLE `payment`
-  ADD PRIMARY KEY (`payment_id`);
-
---
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -232,12 +195,6 @@ ALTER TABLE `orders`
 --
 ALTER TABLE `order_contents`
   MODIFY `content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `payment`
---
-ALTER TABLE `payment`
-  MODIFY `payment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1011;
 
 --
 -- AUTO_INCREMENT for table `products`
