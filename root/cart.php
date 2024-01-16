@@ -86,7 +86,7 @@ if (!empty($_SESSION['cart']))
   <td><input type="submit" name="submit" class="btn btn-light btn-block" value="Update My Cart"></td>
   </tr>
   <tr><td></td><td></td><td></td>
-  <td><a href="checkout.php?total='.$total.'" class="btn btn-dark btn-block">Checkout Now</a></td>
+  <td><a href="payment.php?total=' . $total . '" class="btn btn-dark btn-block">Checkout Now</a></td>
   </table>
   </form>';
 }

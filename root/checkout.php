@@ -39,7 +39,9 @@ if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['car
   mysqli_close($link);
 
   # Display order number.
-  echo "Thanks for your order. Your Order Number Is # ".$order_id."</p> ";
+  echo "<h2>Thank you for your order.</h2>
+		<br>
+		<p>Your Order Number Is # ".$order_id."</p> ";
 
   # Remove cart items.  
   $_SESSION['cart'] = NULL ;
