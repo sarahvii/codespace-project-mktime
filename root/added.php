@@ -77,7 +77,6 @@ if ( mysqli_num_rows( $r ) == 1 )
       if (!$link) {
         die('Could not connect to MySQL: ' . mysqli_error());
       }
-      echo 'Connected to the database successfully!';
 
       echo '<h3 class="text-center"> 
           <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . '. Here is your shopping basket.</strong><br>

@@ -31,7 +31,6 @@
       if (!$link) {
         die('Could not connect to MySQL: ' . mysqli_error());
       }
-      echo 'Connected to the database successfully!';
 
       echo '<h3 class="text-center"> 
           <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . ' and welcome to MK Time</strong><br>

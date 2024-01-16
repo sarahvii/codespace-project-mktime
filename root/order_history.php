@@ -23,7 +23,6 @@
       if (!$link) { 
         die('Could not connect to MySQL: ' . mysqli_error()); 
       } 
-      echo 'Connected to the database successfully!';
 
 	  echo'<h1>Order History</h1>';
 	  

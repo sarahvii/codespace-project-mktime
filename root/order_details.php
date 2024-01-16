@@ -18,7 +18,6 @@
       if (!$link) { 
         die('Could not connect to MySQL: ' . mysqli_error()); 
       } 
-      echo 'Connected to the database successfully!';
 	  
 	    // get order id from URL
 		$order_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
