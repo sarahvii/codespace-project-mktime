@@ -16,7 +16,7 @@ if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['car
   
   # Store buyer and order total in 'orders' database table.
   $q = "INSERT INTO orders ( user_id, total, order_date ) VALUES (". $_SESSION['user_id'].",".$_GET['total'].", NOW() ) ";
-  $r = mysqli_query ($link, $q);  
+  $r = mysqli_query ($link, $q);
   
   # Retrieve current order number.
   $order_id = mysqli_insert_id($link) ;
@@ -39,10 +39,24 @@ if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['car
   mysqli_close($link);
 
   # Display order number.
-  echo "Thanks for your order. Your Order Number Is # ".$order_id."</p> ";
+  echo '<br>
+  <div style="display: flex; align-items: flex-start; justify-content: center; height: 100vh;">
+  <div class="card" style="max-width: 750px; width: 100%;">
+  <div class="card-header">
+    Order number '. $order_id .'
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><b>Thank you for your purchase!</b></h5>
+    <p class="card-text">Hi, we are getting your order ready to be shipped. We will notify you when this has been sent. <br> In the meantime you can check your orders history below </p>
+
+    <a href="http://localhost/mktime/root/order_history.php" class="btn btn-dark">Order history</a>
+  </div>
+</div>
+  ';
+
 
   # Remove cart items.  
   $_SESSION['cart'] = NULL ;
 }
 # Or display a message.
-else { echo '<p>There are no items in your cart.</p> ' ; }
+else { echo '<br><p style="text-align: center";> There are no items in your cart.</p> ' ; }
