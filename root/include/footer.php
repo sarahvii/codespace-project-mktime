@@ -49,7 +49,7 @@
         </div>
         <div class="col-md-4 col-12 mx-auto">
           <p> Contact Us </p>
-          <p> email: mktime.gmail.com </p>
+          <p> email: mktime@gmail.com </p>
             <p> call: 0141 9496 0865  </p>
             <p>  </p>
         </div>
