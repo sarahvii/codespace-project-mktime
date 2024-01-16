@@ -11,10 +11,7 @@
 <div class="container">
     <?php
     // connect to the database
-    $link = mysqli_connect('localhost', 'root', '', 'mktime');
-    if (!$link) {
-      die('Could not connect: ' . mysqli_error());
-    }
+    require('connect_db.php');
 
     // get product ID from URL
     $product_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -30,6 +27,7 @@
       echo '<p>'.$row["product_desc"].'</p>';
       echo '<p>'.$row["key_features"].'</p>';
 	  echo '<p>Price: £'.$row["product_price"].'</p>';
+    echo '<a href="added.php?id='.$row['product_id'].'" class="btn btn-primary">Add to Cart</a>';
     } else {
       echo "Product not found.";
     }
