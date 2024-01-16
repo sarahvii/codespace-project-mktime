@@ -30,6 +30,7 @@
       echo '<p>'.$row["product_desc"].'</p>';
       echo '<p>'.$row["key_features"].'</p>';
 	  echo '<p>Price: £'.$row["product_price"].'</p>';
+    echo '<a href="added.php?id='.$row['product_id'].'" class="btn btn-primary">Add to Cart</a>';
     } else {
       echo "Product not found.";
     }
