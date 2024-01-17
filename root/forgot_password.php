@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forgotten Password</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-     <!-- Custom CSS -->
-     <link rel="stylesheet" href="styles.css">
-     <title>MK Time</title>
-	 <!-- navbar -->
+	<?php
+	include ( 'include/head.php' ) ;
 	
-		<?php include('navbar.php'); ?>
+	include('include/navbar.php'); 
+	?>
 </head>
 <body>
    
@@ -20,8 +15,23 @@
         <label for="email">Email address:</label>
         <input type="email address" id="email address" name="email address" placeholder="Enter email address" required><br><br>
 
-        <input type="submit" value="Request password reset"><br><br>
+        <input type="submit" value="Request Password Reset" onclick="showAlert();"><br><br>
         <hr>
+		
+<script type="text/javascript">
+			function showAlert() {
+				var emailInput = document.getElementById('email address');
+				var emailValue = emailInput.value.trim();
+
+				var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+				if (emailValue !== '' && emailRegex.test(emailValue)) {
+					alert("Please check your inbox for reset instructions.");
+				} else {
+					alert("Please enter a valid email address.");
+				}
+			}
+		</script>
 
         <div class="already-have-account">
             <a href="login.php">I REMEMBERED MY PASSWORD!</a>
