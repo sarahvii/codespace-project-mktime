@@ -10,7 +10,18 @@
 
   <body>
     <div class="container">
-		<div class='search-form'>
+	
+      <br>
+      <?php
+      require('connect_db.php');
+
+      echo '<h3 class="text-center"> 
+          <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . ' and welcome to MK Time</strong><br>
+          <small class="text-muted"><em>Watches for every wrist</em></small>
+          <br>
+      </h3>';
+?>
+	<div class='search-form'>
 	 <form action="index.php" method="GET">
         <input type="text" name="query" />
         <input type="submit" value="Search" />
@@ -24,16 +35,8 @@
         text-align: center;
     }
 </style>
-      <br>
-      <?php
-      require('connect_db.php');
 
-      echo '<h3 class="text-center"> 
-          <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . ' and welcome to MK Time</strong><br>
-          <small class="text-muted"><em>Watches for every wrist</em></small>
-          <br>
-      </h3>';
-
+<?php
       // Initialize $results variable
       $results = array();
 
