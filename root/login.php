@@ -1,16 +1,21 @@
 <?php 
 
+
 // uncomment below to check error messages
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL);
 
 include ( 'include/head.php' ) ;
-# Display any error messages if present.
-if ( isset( $errors ) && !empty( $errors ) )
-{
- echo '<p id="err_msg">Oops! There was a problem:<br>' ;
- foreach ( $errors as $msg ) { echo " - $msg<br>" ; }
- echo 'Please try again or <a href="create_account.php">Create an account</a></p>' ;
+
+# Display any error messages as js alerts
+if (isset($errors) && !empty($errors)) {
+    echo '<script type="text/javascript">';
+    echo 'alert("Oops! There was a problem:\\n';
+    foreach ($errors as $msg) {
+        echo addslashes($msg) . '\\n';
+    }
+    echo 'Please try again or create an account.");';
+    echo '</script>';
 }
 
 # Display session data
