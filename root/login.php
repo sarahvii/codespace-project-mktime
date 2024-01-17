@@ -1,5 +1,10 @@
 <?php 
 
+
+// uncomment below to check error messages
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+
 include ( 'include/head.php' ) ;
 
 # Display any error messages as js alerts
@@ -18,9 +23,9 @@ if (isset($_SESSION['firstname']) && isset($_SESSION['lastname'])) {
     echo "{$_SESSION['firstname']} {$_SESSION['lastname']} is logged in.";
  }
 
- # Dislay logout message
-if (isset($_GET['logged_out']) && $_GET['logged_out'] == 'true') {
-    echo '<p>You have been successfully logged out.</p>';
+ # Dislay logout message as alert
+ if (isset($_GET['logged_out']) && $_GET['logged_out'] == 'true') {
+    echo '<script type="text/javascript">alert("You have successfully logged out.");</script>';
 }
 ?>
 
