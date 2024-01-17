@@ -20,7 +20,7 @@
 	  <style>
     .search-form {
 		width: 50%; 
-        margin: 0 200px;
+        margin: 0 22.5%;
         text-align: center;
     }
 </style>
