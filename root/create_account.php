@@ -58,7 +58,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 
       // Display an alert and redirect to the index page
       echo '<script type="text/javascript">
-              alert("Thank you for registering with us! Please log in.");
+              alert("Thank you for registering with us ' . $fn . '! Please log in.");
               window.location = "login.php";
             </script>';
     } else {
