@@ -61,7 +61,7 @@ INSERT INTO `orders` (`order_id`, `user_id`, `total`, `order_date`) VALUES
 CREATE TABLE `order_contents` (
   `content_id` int(10) UNSIGNED NOT NULL,
   `order_id` int(11) NOT NULL,
-  `product_id` int(11) DEFAULT NULL,
+  `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
