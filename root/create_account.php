@@ -1,10 +1,5 @@
   <?php
 
-// uncomment below to check error messages
-// ini_set('display_errors', 1);
-// error_reporting(E_ALL);
-
-
 if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
 {
   # Connect to the database
@@ -50,34 +45,30 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
   }
   
   # On success register user inserting into 'users' database table.
-  if ( empty( $errors ) ) 
-  {
+  if (empty($errors)) {
     $reg_date = date('Y-m-d H:i:s');
-    $q = "INSERT INTO users (firstname, lastname, email, password, reg_date)
-	VALUES ('$fn', '$ln', '$e', SHA2('$p',256), '$reg_date')";
-    $r = @mysqli_query ( $link, $q ) ;
-    if ($r) { 
+    $q = "INSERT INTO users (firstname, lastname, email, password, reg_date) VALUES ('$fn', '$ln', '$e', SHA2('$p',256), '$reg_date')";
+    $r = @mysqli_query($link, $q);
+    if ($r) {
+      // Start a session and log the user in
+      session_start();
+      $_SESSION['firstname'] = $fn;
+      $_SESSION['lastname'] = $ln;
+      $_SESSION['email'] = $e;
+
+      // Display an alert and redirect to the index page
+      echo '<script type="text/javascript">
+              alert("Thank you for registering with us! Please log in.");
+              window.location = "login.php";
+            </script>';
+    } else {
       echo '<div class="container">
               <div class="alert alert-secondary" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                </button>
-                <h4 class="alert-heading"Registered!</h4>
-                <p>You are now registered.</p>
-                <a class="alert-link" href="login.php">Login</a>
+                <h4 class="alert-heading">Error!</h4>
+                <p>Registration failed. Please try again.</p>
               </div>
             </div>';
-             } else {
-      echo '<div class="container">
-              <div class="alert alert-secondary" role="alert">
-                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">×</span>
-                  </button>
-                  <h4 class="alert-heading">Error!</h4>
-                  <p>Registration failed. Please try again.</p>
-              </div>
-            </div>';
-      }
+    }
   
     # Close database connection.
     mysqli_close($link); 
