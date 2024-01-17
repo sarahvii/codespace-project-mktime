@@ -78,6 +78,9 @@ if (!empty($_SESSION['cart']))
   # Close the database connection.
   mysqli_close($link); 
   
+    # Store the total in the session.
+    $_SESSION['order_total'] = $total;
+  
   # Display the total.
   echo ' <tr><td></td><td></td><td></td>
   <td>Total = £ '.number_format($total,2).'</td>
@@ -86,7 +89,7 @@ if (!empty($_SESSION['cart']))
   <td><input type="submit" name="submit" class="btn btn-light btn-block" value="Update My Cart"></td>
   </tr>
   <tr><td></td><td></td><td></td>
-  <td><a href="checkout.php?total='.$total.'" class="btn btn-dark btn-block">Checkout Now</a></td>
+  <td><a href="checkout.php" class="btn btn-dark btn-block">Checkout Now</a></td>
   </table>
   </form>';
 }
