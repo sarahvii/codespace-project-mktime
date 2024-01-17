@@ -39,14 +39,29 @@
             <strong>Sign up for our newsletter</strong>
           </p>
           <!-- Email input -->
-          <div class="form-outline form-white mb-4">
+		 <div class="form-outline form-white mb-4">
             <input type="email" id="form5Example2" class="form-control" placeholder="Email address"/>
           </div>
           <!-- Submit button -->
-          <button type="submit" class="btn btn-outline-light mb-4">
+          <button type="submit" class="btn btn-outline-light mb-4" onclick="showMailingListAlert();">
             Subscribe
             </button>
         </div>
+		  <script type="text/javascript">
+          function showMailingListAlert() {
+            var emailInput = document.getElementById('form5Example2');
+            var emailValue = emailInput.value.trim();
+
+            // Regular expression for email validation
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (emailValue !== '' && emailRegex.test(emailValue)) {
+              alert("You have successfully signed up to our mailing list. Please check your inbox.");
+            } else {
+              alert("Please enter a valid email address.");
+            }
+          }
+        </script>
         <div class="col-md-4 col-12 mx-auto">
           <p> Contact Us </p>
           <p> email: mktime@gmail.com </p>
