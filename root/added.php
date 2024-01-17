@@ -35,7 +35,7 @@ if ( mysqli_num_rows( $r ) == 1 )
   { 
     # Add one more of this product.
     $_SESSION['cart'][$id]['quantity']++; 
-    echo '
+    echo '<br>
 	<div class="container">
 			<div class="alert alert-secondary" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -50,7 +50,8 @@ if ( mysqli_num_rows( $r ) == 1 )
   {
     # Or add one of this product to the cart.
     $_SESSION['cart'][$id]= array ( 'quantity' => 1, 'price' => $row['product_price'] ) ;
-    echo '<div class="container">
+    echo '<br>
+			<div class="container">
 			<div class="alert alert-secondary" role="alert">
 				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -64,23 +65,7 @@ if ( mysqli_num_rows( $r ) == 1 )
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <?php include('include/head.php'); ?>
-	</head>
-  <body>
-     <div class="container">
-<?php
-      echo '<h3 class="text-center"> 
-          <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . '. Here is your shopping basket.</strong><br>
-          <br>
-      </h3>';
-      ?>
-	</div>
-	
-	</body>
-  </html>
+
 
   <?php
   
