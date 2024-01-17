@@ -22,12 +22,13 @@
 
     if (mysqli_num_rows($result) > 0) {
       $row = mysqli_fetch_assoc($result);
-      echo '<h1>'.$row["product_name"].'</h1>';
-      echo '<img src="'.$row["product_img"].'" alt="Product Image" style="width:100%;max-width:300px;">';
-      echo '<p>'.$row["product_desc"].'</p>';
-      echo '<p>'.$row["key_features"].'</p>';
-	  echo '<p>Price: £'.$row["product_price"].'</p>';
-    echo '<a href="added.php?id='.$row['product_id'].'" class="btn btn-primary">Add to Cart</a>';
+      echo '<h1>'.$row["product_name"].'</h1>
+      <img src="'.$row["product_img"].'" alt="Product Image" style="width:100%;max-width:300px; margin-bottom: 15px;">
+      <p>'.$row["product_desc"].'</p>
+     <p>Features: '.$row["key_features"].'</p>
+	 <p>Price: £'.$row["product_price"].'</p>
+    <a href="added.php?id='.$row['product_id'].'" class="btn btn-primary" style="margin-bottom: 5px;">Add to Cart</a>
+	<br>';
     } else {
       echo "Product not found.";
     }
