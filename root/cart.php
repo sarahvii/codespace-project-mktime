@@ -92,10 +92,12 @@ if (!empty($_SESSION['cart']))
 }
   else {
 # Or display a message.
-echo '<div class="alert alert-secondary" role="alert">
+echo '<br>
+	<div class="alert alert-secondary" role="alert">
    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	<span aria-hidden="true">×</span>
    </button>
+   <br>
    <p style="text-align: center";>Your cart is currently empty.</p>
 </div>' ; }
  include('include/footer.php');
