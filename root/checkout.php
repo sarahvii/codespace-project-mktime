@@ -9,13 +9,13 @@ include('include/head.php');
 include('include/navbar.php');
 
 # Check for passed total and cart.
-if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['cart']) ) )
+if ( isset( $_SESSION['order_total'] ) && ( $_SESSION['order_total'] > 0 ) && (!empty($_SESSION['cart']) ) )
 {
   # Open database connection.
   require ('connect_db.php');
   
   # Store buyer and order total in 'orders' database table.
-  $q = "INSERT INTO orders ( user_id, total, order_date ) VALUES (". $_SESSION['user_id'].",".$_GET['total'].", NOW() ) ";
+  $q = "INSERT INTO orders ( user_id, total, order_date ) VALUES (". $_SESSION['user_id'].",".$_SESSION['order_total'].", NOW() ) ";
   $r = mysqli_query ($link, $q);
   
   # Retrieve current order number.
@@ -49,7 +49,7 @@ if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['car
     <h5 class="card-title"><b>Thank you for your purchase!</b></h5>
     <p class="card-text">Hi, we are getting your order ready to be shipped. We will notify you when this has been sent. <br> In the meantime you can check your orders history below </p>
 
-    <a href="http://localhost/mktime/root/order_history.php" class="btn btn-dark">Order history</a>
+    <a href="order_history.php" class="btn btn-dark">Order history</a>
   </div>
 </div>
   ';
@@ -60,3 +60,6 @@ if ( isset( $_GET['total'] ) && ( $_GET['total'] > 0 ) && (!empty($_SESSION['car
 }
 # Or display a message.
 else { echo '<br><p style="text-align: center";> There are no items in your cart.</p> ' ; }
+
+// Clear the order total from the session after processing.
+unset($_SESSION['order_total']);
