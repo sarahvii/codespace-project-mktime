@@ -74,14 +74,18 @@ We used this project brief to draw up a data structure using the noun technique.
 
 The coding was mostly done on Notepad++ and Visual Studio Code, with XAMPP allowing us to view the app and databases on our local host. 
 
+![not_logged_in](https://github.com/sarahvii/mktime/assets/113289014/110a5e53-5689-44a1-97a4-a612609d2ebb)
+
 ### To use the app on your local server you need to do the following:
 
 - Download and install [XAMPP](https://www.apachefriends.org/)
 - Start the Apache and then MySQL servers.
 - Clone this repo into a folder in your XAMPP htdocs folder (often C: > xampp > htdocs)
-- On XAMPP click the MySQL 'Admin' button to be taken to the PHP Admin My SQL page. Create a database called 'mktime' and then upload the 'mktime.sql' file from this repo.
+- On XAMPP click the MySQL 'Admin' button to be taken to the PHP Admin My SQL page. Create a database called 'mktime' and then import the 'mktime.sql' file from this repo to install the database tables.
 - Type 'http://localhost/newfoldername/root/index.php' into your browser and press 'enter' (don't forget to replace 'newfoldername' with the name of your new folder).
 - You can now view the home page and product detail pages on the app, but to buy anything you have to log in.
 - You may have spotted that passwords on the database have been encrypted, so feel free to use 'a_coolio@example.com' and 'coolio1' to login or to make up your own email and password combination.
 - Now you're logged in you can add as many watches as you want to your basket.
 - Browse, search and look at more detailed product information before checking out.
+  
+![logged_in](https://github.com/sarahvii/mktime/assets/113289014/ec57542a-4e1e-4545-834a-c8126a33a333)
