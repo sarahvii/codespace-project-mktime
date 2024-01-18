@@ -9,7 +9,8 @@
     ?>
   </head>
 
-  <body>
+    <body class="d-flex flex-column min-vh-100">
+    <div class="container flex-grow-1">
 <?php
 
 // uncomment below to check error messages
@@ -72,5 +73,10 @@ if ( mysqli_num_rows( $r ) == 1 )
 # Close database connection.
 mysqli_close($link);
 
-include('include/footer.php');
 ?>
+
+</div>
+<?php
+ include('include/footer.php'); ?>
+</body>
+</html>

@@ -11,9 +11,8 @@
     ?>
 </head>
 
-<body>
-<div class="container">
-
+<body class="d-flex flex-column min-vh-100">
+    <div class="container flex-grow-1">
   <!-- Content here -->
   <?php
   
