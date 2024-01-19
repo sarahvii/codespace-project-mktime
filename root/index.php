@@ -16,7 +16,7 @@
       require('connect_db.php');
 
       echo '<h3 class="text-center"> 
-          <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . ' and welcome to MK Time</strong><br>
+          <strong>Hello ' . (isset($_SESSION['firstname']) ? '' . $_SESSION['firstname'] : '') . ' and Welcome to MK Time!</strong><br>
           <small class="text-muted"><em>Watches for every wrist</em></small>
           <br>
       </h3>';
@@ -30,7 +30,7 @@
 	  </div>
 	  <style>
     .search-form {
-		width: 50%; 
+		    width: 50%; 
         margin: 0 22.5%;
         text-align: center;
     }
