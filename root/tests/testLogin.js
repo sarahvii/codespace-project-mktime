@@ -16,11 +16,11 @@ driver.get("http://localhost/mktime/root/login.php");
 await driver.manage().window().maximize();
 
 // Test using correct login details
-// Input correct user name 'john smith'
-await driver.findElement(By.id("email")).sendKeys("johnsmith@gmail.com");
+// Input correct user name 'john doe'
+await driver.findElement(By.id("email")).sendKeys("johndoe@example.com");
 
-// Input correct password john1
-await driver.findElement(By.id("password")).sendKeys("john1");
+// Input correct password password123
+await driver.findElement(By.id("password")).sendKeys("password123");
 
 // Click on 'login' button
 await driver.findElement(By.id("submit_button")).click();

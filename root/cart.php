@@ -66,10 +66,10 @@ if (!empty($_SESSION['cart']))
     echo "<tr>
         <td><img src='{$row['product_img']}' alt='{$row['product_name']}' style='width: 150px; height: 100px;'></td>
         <td>
-          <input type=\"text\" size=\"2\" name=\"qty[{$row['product_id']}]\" value=\"{$_SESSION['cart'][$row['product_id']]['quantity']}\">
-          <button type=\"button\" onclick=\"updateQuantity('{$row['product_id']}', 'increment')\">+</button>
-          <button type=\"button\" onclick=\"updateQuantity('{$row['product_id']}', 'decrement')\">-</button>
-          <button type=\"button\" onclick=\"updateQuantity('{$row['product_id']}', 'remove')\">Remove</button>
+          <input type=\"text\" id=\"qty-input\" size=\"2\" name=\"qty[{$row['product_id']}]\" value=\"{$_SESSION['cart'][$row['product_id']]['quantity']}\">
+          <button type=\"button\" id=\"increment\" onclick=\"updateQuantity('{$row['product_id']}', 'increment')\">+</button>
+          <button type=\"button\" id=\"decrement\" onclick=\"updateQuantity('{$row['product_id']}', 'decrement')\">-</button>
+          <button type=\"button\" id=\"remove\" onclick=\"updateQuantity('{$row['product_id']}', 'remove')\">Remove</button>
         </td>
         <td>@ {$row['product_price']} = </td> 
         <td> £ ".number_format ($subtotal, 2)."</td>

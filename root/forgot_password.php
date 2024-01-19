@@ -13,14 +13,14 @@
     <h2><b>Forgotten password</b></h2>
     <form action="forgot_password.php" method="post">
         <label for="email">Email address:</label>
-        <input type="email address" id="email address" name="email address" placeholder="Enter email address" required><br><br>
+        <input type="email address" id="email-address" name="email-address" placeholder="Enter email address" required><br><br>
 
-        <input type="submit" value="Request Password Reset" onclick="showAlert();"><br><br>
+        <input type="submit" id="password-reset" name="password-reset" value="Request Password Reset" onclick="showAlert();"><br><br>
         <hr>
 		
 <script type="text/javascript">
 			function showAlert() {
-				var emailInput = document.getElementById('email address');
+				var emailInput = document.getElementById('email-address');
 				var emailValue = emailInput.value.trim();
 
 				var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

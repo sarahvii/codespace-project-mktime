@@ -47,7 +47,7 @@ if (isset($_SESSION['firstname']) && isset($_SESSION['lastname'])) {
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter password" required><br><br>
 
-        <input type="submit" id=submit_button value="Login"><br><br>
+        <input type="submit" id="submit_button" value="Login"><br><br>
         <hr>
 
         <div class="forgot-password">
