@@ -23,8 +23,8 @@
 ?>
 	<div class='search-form'>
 	 <form action="index.php" method="GET">
-        <input type="text" name="query" />
-        <input type="submit" value="Search" />
+        <input type="text" id="search-text" name="query" />
+        <input type="submit" id="submit-search" value="Search" />
         <a href="index.php">Clear Search</a>
       </form>
 	  </div>

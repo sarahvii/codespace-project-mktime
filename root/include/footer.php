@@ -43,7 +43,7 @@
             <input type="email" id="form5Example2" class="form-control" placeholder="Email address"/>
           </div>
           <!-- Submit button -->
-          <button type="submit" class="btn btn-outline-light mb-4" onclick="showMailingListAlert();">
+          <button type="submit" id="newsletter-submit" class="btn btn-outline-light mb-4" onclick="showMailingListAlert();">
             Subscribe
             </button>
         </div>

@@ -125,7 +125,7 @@ if ( $_SERVER[ 'REQUEST_METHOD' ] == 'POST' )
         <label for="password">Repeat Password:</label>
         <input type="password" id="pass2" name="pass2" placeholder="Repeat Password" required><br><br>
 
-        <input type="submit" value="Create Account"><br><br>
+        <input type="submit" id="create-account" value="Create Account"><br><br>
         <hr>
 
         <div class="already-have-account">
