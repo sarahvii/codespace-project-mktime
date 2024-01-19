@@ -9,7 +9,8 @@ include('include/navbar.php');
 
 ?>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
+    <div class="container flex-grow-1">
   <?php
 
 # Check if form has been submitted for update.
@@ -103,7 +104,7 @@ echo '<br>
    <br>
    <p style="text-align: center";>Your cart is currently empty.</p>
 </div>' ; }
- include('include/footer.php');
+
 ?>
 <script>
 function updateQuantity(productId, action) {
@@ -119,5 +120,8 @@ function updateQuantity(productId, action) {
     }
 }
 </script>
+</div>
+<?php
+ include('include/footer.php'); ?>
 </body>
 </html>
