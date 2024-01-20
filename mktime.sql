@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 16, 2024 at 09:51 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost
+-- Generation Time: Jan 19, 2024 at 05:08 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,7 +50,12 @@ INSERT INTO `orders` (`order_id`, `user_id`, `total`, `order_date`) VALUES
 (9, 15, 12.99, '2023-05-05 00:00:00'),
 (10, 16, 59.97, '2023-05-08 00:00:00'),
 (12, 12, 109.98, '2024-01-15 14:47:49'),
-(13, 11, 399.96, '2024-01-15 15:22:52');
+(13, 11, 399.96, '2024-01-15 15:22:52'),
+(14, 21, 28.98, '2024-01-17 10:36:23'),
+(15, 12, 99.99, '2024-01-17 12:02:36'),
+(16, 12, 21.98, '2024-01-17 12:23:28'),
+(17, 12, 35.98, '2024-01-17 16:10:59'),
+(18, 12, 10.99, '2024-01-18 17:13:58');
 
 -- --------------------------------------------------------
 
@@ -60,8 +65,8 @@ INSERT INTO `orders` (`order_id`, `user_id`, `total`, `order_date`) VALUES
 
 CREATE TABLE `order_contents` (
   `content_id` int(10) UNSIGNED NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
+  `order_id` int(10) UNSIGNED NOT NULL,
+  `product_id` int(10) UNSIGNED NOT NULL,
   `quantity` int(11) NOT NULL,
   `price` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -81,11 +86,17 @@ INSERT INTO `order_contents` (`content_id`, `order_id`, `product_id`, `quantity`
 (8, 4, 2, 2, 15.99),
 (9, 4, 4, 1, 12.99),
 (10, 5, 5, 3, 19.99),
-(11, 11, 1, 1, 10.99),
 (12, 12, 3, 1, 8.99),
 (13, 12, 11, 1, 99.99),
 (14, 12, 12, 1, 1.00),
-(15, 13, 11, 4, 99.99);
+(15, 13, 11, 4, 99.99),
+(16, 14, 3, 1, 8.99),
+(17, 14, 5, 1, 19.99),
+(18, 15, 11, 1, 99.99),
+(19, 16, 1, 2, 10.99),
+(20, 17, 2, 1, 15.99),
+(21, 17, 5, 1, 19.99),
+(22, 18, 1, 1, 10.99);
 
 -- --------------------------------------------------------
 
@@ -149,7 +160,106 @@ INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `email`, `password`, `r
 (17, 'Matthew', 'Anderson', 'matthewanderson@example.com', 'bd94dcda26fccb4e68d6a31f9b5aac0b571ae266d822620e901ef7ebe3a11d4f', '2024-01-15 12:06:14'),
 (18, 'Olivia', 'Lee', 'olivialee@example.com', '5efc2b017da4f7736d192a74dde5891369e0685d4d38f2a455b6fcdab282df9c', '2024-01-15 12:08:18'),
 (19, 'Daniel', 'Martinez', 'danielmartinez@example.com', '2e8edcbf091ab6a39ae55a0c9c7a00f793c39683898937d8760e04017c98d2d8', '2024-01-15 12:08:53'),
-(20, 'Sophia', 'Garcia', 'sophiagarcia@example.com', 'ced75643425df8422f6b947248904aad4b0a471da94c6618be2819b8fb455e77', '2024-01-15 12:10:22');
+(20, 'Sophia', 'Garcia', 'sophiagarcia@example.com', 'ced75643425df8422f6b947248904aad4b0a471da94c6618be2819b8fb455e77', '2024-01-15 12:10:22'),
+(21, 'c', 'c', 'c@c.com', '2e7d2c03a9507ae265ecf5b5356885a53393a2029d241394997265a1a25aefc6', '2024-01-17 11:53:27'),
+(22, 'r', 'r', 'r@r.com', '454349e422f05297191ead13e21d3db520e5abef52055e4964b82fb213f593a1', '2024-01-17 12:35:48'),
+(23, 'd', 'd', 'd@d.com', '18ac3e7343f016890c510e93f935261169d9e3f565436429830faf0934f4f8e4', '2024-01-17 12:36:41'),
+(24, 'g', 'g', 'g@g.com', 'cd0aa9856147b6c5b4ff2b7dfee5da20aa38253099ef1b4a64aced233c9afe29', '2024-01-17 12:50:02'),
+(25, 'f', 'f', 'f@f.com', '252f10c83610ebca1a059c0bae8255eba2f95be4d1d7bcfa89d7248a82d9f111', '2024-01-17 12:51:59'),
+(26, 'h', 'h', 'h@h.com', 'aaa9402664f1a41f40ebbc52c9993eb66aeb366602958fdfaa283b71e64db123', '2024-01-17 13:24:02');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `view_orders`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_orders` (
+`order_id` int(10) unsigned
+,`user_id` int(10) unsigned
+,`total` decimal(8,2)
+,`order_date` datetime
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `view_order_contents`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_order_contents` (
+`content_id` int(10) unsigned
+,`order_id` int(10) unsigned
+,`product_id` int(10) unsigned
+,`quantity` int(11)
+,`price` decimal(10,2)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `view_products`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_products` (
+`product_id` int(10) unsigned
+,`product_name` varchar(20)
+,`product_desc` varchar(200)
+,`product_img` varchar(20)
+,`product_price` decimal(4,2)
+,`key_features` varchar(200)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `view_users`
+-- (See below for the actual view)
+--
+CREATE TABLE `view_users` (
+`user_id` int(10) unsigned
+,`firstname` varchar(20)
+,`lastname` varchar(40)
+,`email` varchar(60)
+,`password` varchar(64)
+,`reg_date` datetime
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_orders`
+--
+DROP TABLE IF EXISTS `view_orders`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_orders`  AS SELECT `orders`.`order_id` AS `order_id`, `orders`.`user_id` AS `user_id`, `orders`.`total` AS `total`, `orders`.`order_date` AS `order_date` FROM `orders` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_order_contents`
+--
+DROP TABLE IF EXISTS `view_order_contents`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_order_contents`  AS SELECT `order_contents`.`content_id` AS `content_id`, `order_contents`.`order_id` AS `order_id`, `order_contents`.`product_id` AS `product_id`, `order_contents`.`quantity` AS `quantity`, `order_contents`.`price` AS `price` FROM `order_contents` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_products`
+--
+DROP TABLE IF EXISTS `view_products`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_products`  AS SELECT `products`.`product_id` AS `product_id`, `products`.`product_name` AS `product_name`, `products`.`product_desc` AS `product_desc`, `products`.`product_img` AS `product_img`, `products`.`product_price` AS `product_price`, `products`.`key_features` AS `key_features` FROM `products` ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `view_users`
+--
+DROP TABLE IF EXISTS `view_users`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_users`  AS SELECT `users`.`user_id` AS `user_id`, `users`.`firstname` AS `firstname`, `users`.`lastname` AS `lastname`, `users`.`email` AS `email`, `users`.`password` AS `password`, `users`.`reg_date` AS `reg_date` FROM `users` ;
 
 --
 -- Indexes for dumped tables
@@ -159,13 +269,16 @@ INSERT INTO `users` (`user_id`, `firstname`, `lastname`, `email`, `password`, `r
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`order_id`);
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `fk_orders_users` (`user_id`);
 
 --
 -- Indexes for table `order_contents`
 --
 ALTER TABLE `order_contents`
-  ADD PRIMARY KEY (`content_id`);
+  ADD PRIMARY KEY (`content_id`),
+  ADD KEY `fk_order_contents_products` (`product_id`),
+  ADD KEY `fk_order_contents_orders` (`order_id`);
 
 --
 -- Indexes for table `products`
@@ -187,13 +300,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `order_contents`
 --
 ALTER TABLE `order_contents`
-  MODIFY `content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `content_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -205,7 +318,24 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `fk_orders_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_contents`
+--
+ALTER TABLE `order_contents`
+  ADD CONSTRAINT `fk_order_contents_orders` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
+  ADD CONSTRAINT `fk_order_contents_products` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
