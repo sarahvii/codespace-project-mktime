@@ -1,6 +1,6 @@
 # MK Time
 
-This is a project we worked on as part of the [Codespace course](https://www.edinburghcollege.ac.uk/courses/browse/bootcamp-beginner-software-free-course-cr1csicz23) at Edinburgh College. The idea was to build a full-stack retail application that would consolidate our coursework.
+This is a project we worked on as part of the [Codespace course](https://www.codespace.org.uk) at Edinburgh College. The idea was to build a full-stack retail application that would consolidate our coursework.
 
 ## Project Brief  
 
